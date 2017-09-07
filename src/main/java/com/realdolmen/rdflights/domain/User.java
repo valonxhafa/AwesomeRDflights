@@ -8,8 +8,34 @@ public class User extends AbstractMaster {
 
     private String firstName;
     private String lastName;
+    @Embedded
+    private String address;
+    private char gender;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    
+    @Column(unique = true)
+    private String email;
+    private String password;
+    private String tel;
+    private Date birthDate;
+    
+    /* Fields AirlineCompany */ 
+    private String airlineCompanyCode;
+    private String airlineCompanyName;
+    private String airlineCompanydescription;
 
-
+    
+    public User() {
+    }
+    public User(String firstName, String lastName, Date birthDate,char gender, Role role) {
+        this.firstName 	= firstName;
+        this.lastName 	= lastName;
+        this.birthDate 	= birthDate;
+        this.gender		= gender;
+        this.role	 	= role;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
@@ -25,4 +51,68 @@ public class User extends AbstractMaster {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public char getGender() {
+		return gender;
+	}
+	public void setGender(char gender) {
+		this.gender = gender;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	
+	/*Getters and setter AirlineCompany*/
+	public String getAirlineCompanyCode() {
+		return airlineCompanyCode;
+	}
+	public void setAirlineCompanyCode(String airlineCompanyCode) {
+		this.airlineCompanyCode = airlineCompanyCode;
+	}
+	public String getAirlineCompanyName() {
+		return airlineCompanyName;
+	}
+	public void setAirlineCompanyName(String airlineCompanyName) {
+		this.airlineCompanyName = airlineCompanyName;
+	}
+	public String getAirlineCompanyDescription() {
+		return airlineCompanydescription;
+	}
+	public void setAirlineCompanyDescription(String airlineCompanydescription) {
+		this.airlineCompanydescription = airlineCompanydescription;
+	}
+    
 }
