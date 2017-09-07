@@ -9,6 +9,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>com.realdolmen.rdflights.domain.User</class>
+        <class>com.realdolmen.rdflights.domain.Region</class>
+        <class>com.realdolmen.rdflights.domain.Airport</class>
+        <class>com.realdolmen.rdflights.domain.Flight</class>
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

@@ -1,33 +1,26 @@
 package com.realdolmen.rdflights.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Version;
+import javax.persistence.*;
 
 
 /**
  * Defines common fields used by AwesomeTogethAir Entities.
  */
 @MappedSuperclass
-public abstract class AbstractMaster {
+public abstract class AbstractMaster implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Version
     private Long version;
     
     @Temporal(TemporalType.TIMESTAMP)
-    private Date update;
+    private Date updateTime;
 
 	public AbstractMaster() {
 
@@ -52,11 +45,11 @@ public abstract class AbstractMaster {
 	}
 
 	public Date getUpdate() {
-		return update;
+		return updateTime;
 	}
 
 
-	public void setUpdate(Date update) {
-		this.update = update;
+	public void setUpdate(Date updateTime) {
+		this.updateTime = updateTime;
 	}    
 }

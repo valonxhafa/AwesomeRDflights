@@ -9,7 +9,6 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 public class Airport extends AbstractMaster{
 	
-	
 	@NotBlank
 	private String airportCode;
 	@NotBlank
@@ -17,7 +16,7 @@ public class Airport extends AbstractMaster{
 	@NotBlank
 	private String country;
 	@NotNull
-	private boolean availabilty;
+	private boolean available;
 	@ManyToOne
 	private Region region;
 	
@@ -45,11 +44,11 @@ public class Airport extends AbstractMaster{
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public boolean isAvailabilty() {
-		return availabilty;
+	public boolean isAvailable() {
+		return available;
 	}
-	public void setAvailabilty(boolean availabilty) {
-		this.availabilty = availabilty;
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 	public Region getRegion() {
 		return region;

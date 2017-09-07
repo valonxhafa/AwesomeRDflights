@@ -25,8 +25,7 @@ public class Flight extends AbstractMaster {
 	@NotNull
 	private String flightNumber;
 	
-	
-	private Travel travelReport;
+	//private Travel travelReport;
 	
 	public Flight() {
 		super();
@@ -72,7 +71,7 @@ public class Flight extends AbstractMaster {
 		this.airlineCompany = airlineCompany;
 	}
 	
-
+/*
 	public Travel getTravelReport() {
 		return travelReport;
 	}
@@ -80,7 +79,7 @@ public class Flight extends AbstractMaster {
 	public void setTravelReport(Travel travelReport) {
 		this.travelReport = travelReport;
 	}
-
+*/
 	public String getFlightNumber() {
 		return flightNumber;
 	}

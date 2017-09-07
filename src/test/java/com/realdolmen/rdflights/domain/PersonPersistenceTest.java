@@ -20,8 +20,9 @@ public class PersonPersistenceTest extends AbstractPersistenceTest {
 
     @Test
     public void personCanBeLoaded() throws Exception {
-        User person = em.find(User.class, 1000L);
-        assertEquals("John", person.getFirstName());
+    	Long longID = (long) 1;
+        User person = em.find(User.class, longID);
+        assertEquals("Johnny", person.getFirstName());
         assertEquals("Doe", person.getLastName());
     }
 }

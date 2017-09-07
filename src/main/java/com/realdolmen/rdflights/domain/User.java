@@ -4,16 +4,11 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class User {
-    @Id
-    @GeneratedValue
-    private Long id;
+public class User extends AbstractMaster {
+
     private String firstName;
     private String lastName;
 
-    public Long getId() {
-        return id;
-    }
 
     public String getFirstName() {
         return firstName;
