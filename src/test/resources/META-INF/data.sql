@@ -1,8 +1,8 @@
-insert into user(firstName, lastName) values('Johnny', 'Doe');
-insert into user(firstName, lastName) values('Jane', 'Doe');
-insert into user(firstName, lastName) values('Tyler', 'Turner');
-insert into user(firstName, lastName) values('Marcia', 'Jackson');
-insert into user(firstName, lastName) values('Allan', 'Wilson');
+insert into user(firstName, lastName, email) values('Johnny', 'Doe', 'joendoe@email.com');
+insert into user(firstName, lastName, email) values('Jane', 'Doe','joendoe2@email.com');
+insert into user(firstName, lastName, email) values('Tyler', 'Turner', 'TylerTurner@email.com');
+insert into user(firstName, lastName, email) values('Marcia', 'Jackson', 'MarciaJackson@email.com');
+insert into user(firstName, lastName, email) values('Allan', 'Wilson', 'AllanWilson@email.com');
 COMMIT;
 
 INSERT INTO region (updateTime,version,regionName) VALUES (null,1,'Pacific');
