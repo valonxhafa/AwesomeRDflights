@@ -9,7 +9,7 @@ public class User extends AbstractMaster {
     private String firstName;
     private String lastName;
     @Embedded
-    private String address;
+    private Address address;
     private char gender;
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -51,10 +51,10 @@ public class User extends AbstractMaster {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	public char getGender() {
