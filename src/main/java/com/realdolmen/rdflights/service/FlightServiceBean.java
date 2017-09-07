@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 import com.realdolmen.rdflights.domain.Flight;
 import com.realdolmen.rdflights.repository.FlightRepository;
@@ -37,6 +38,11 @@ public class FlightServiceBean implements FlightServiceRemote {
 	public void removeFlight(long personId) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Flight> findAllFlightsByCriteria(Long airportDeparture, Long airportArrival) {
+		return flightRepo.findAllFlightsByCriteria(airportDeparture, airportArrival);
 	}
 
 }

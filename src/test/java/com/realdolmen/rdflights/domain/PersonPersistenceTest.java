@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class PersonPersistenceTest extends AbstractPersistenceTest {
+	
     @Test
     public void personCanBePersisted() throws Exception {
         User person = new User();

@@ -22,4 +22,5 @@ insert into Airport(airportCode, airportName, country, available, region_id) val
 COMMIT;
 
 INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,2,{ts '2016-09-12 19:15:10.'},{ts '2016-09-12 18:00:00.'}, 2 , 'ASI-1234');
+INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,2,1,{ts '2016-09-12 19:15:10.'},{ts '2016-09-12 18:00:00.'}, 3 , 'ASI-4567');
 COMMIT;

@@ -10,5 +10,6 @@ public interface FlightServiceRemote {
     Flight saveFlight (Flight flight);
     Flight findFlightById(Long id);
     List<Flight> findAllFlights();
+    List<Flight> findAllFlightsByCriteria(Long airportDeparture, Long airportArrival);
     void removeFlight(long personId);
 }
