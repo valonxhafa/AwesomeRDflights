@@ -2,7 +2,6 @@ package com.realdolmen.rdflights.domain;
 
 import java.util.Date;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -16,6 +15,7 @@ public class Flight extends AbstractMaster {
 	private Airport airportArrival;
 	@ManyToOne
 	private Airport airportDeparture;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date arrivalTime;
 	@Temporal(TemporalType.TIMESTAMP)

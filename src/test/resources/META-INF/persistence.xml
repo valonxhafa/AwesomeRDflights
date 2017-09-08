@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
-        version="2.1">
-		
-		<persistence-unit name="rdflightsPU" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
 
-        <class>com.realdolmen.rdflights.domain.User</class>
-        <class>com.realdolmen.rdflights.domain.Region</class>
-        <class>com.realdolmen.rdflights.domain.Airport</class>
-        <class>com.realdolmen.rdflights.domain.Flight</class>
+	<persistence-unit name="rdflightsPU" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-            <property name="javax.persistence.sql-load-script-source" value="META-INF/data.sql"/>
+		<class>com.realdolmen.rdflights.domain.User</class>
+		<class>com.realdolmen.rdflights.domain.Region</class>
+		<class>com.realdolmen.rdflights.domain.Airport</class>
+		<class>com.realdolmen.rdflights.domain.Flight</class>
 
+		<properties>
+			<property name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+			<property name="javax.persistence.sql-load-script-source"
+				value="META-INF/data.sql" />
+				
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/awesomeflightairdb"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
@@ -24,5 +26,6 @@
         </properties>
         
     </persistence-unit>
+
 
 </persistence>

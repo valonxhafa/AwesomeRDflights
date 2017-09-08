@@ -9,13 +9,13 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 public class Airport extends AbstractMaster{
 	
-	@NotBlank
+
 	private String airportCode;
-	@NotBlank
+
 	private String airportName;
-	@NotBlank
+
 	private String country;
-	@NotNull
+
 	private boolean available;
 	@ManyToOne
 	private Region region;

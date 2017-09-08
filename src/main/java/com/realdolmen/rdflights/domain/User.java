@@ -1,22 +1,37 @@
 package com.realdolmen.rdflights.domain;
 
 import javax.persistence.*;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class User extends AbstractMaster {
+public class User extends AbstractMaster implements Serializable {
 
-    private String firstName;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@NotBlank
+	private String firstName;
+	@NotBlank
     private String lastName;
+    
     @Embedded
     private Address address;
 
+    @NotBlank
     private String gender;
     @Enumerated(EnumType.STRING)
     private Role role;
     
     @Column(unique = true)
+    @NotBlank
     private String email;
+    @NotBlank
     private String password;
     private String tel;
     private Date birthDate;
@@ -29,6 +44,7 @@ public class User extends AbstractMaster {
     
     public User() {
     }
+    
     public User(String firstName, String lastName, Date birthDate,String gender, Role role) {
         this.firstName 	= firstName;
         this.lastName 	= lastName;
@@ -68,6 +84,7 @@ public class User extends AbstractMaster {
 		return role;
 	}
 	public void setRole(Role role) {
+		role = Role.CUSTOMER;
 		this.role = role;
 	}
 	public String getEmail() {

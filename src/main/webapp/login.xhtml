@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="pageContent">
+		
+		<h1>Log in</h1>
+		<div class="ata-txtBlock  ata-errorBlock ">
+			<!--  Error messages if log in failed -->
+			<h3></h3>
+		</div>
+		<h:form styleClass="ata-registerForm" method="post" >
+			<div class="ata-form-group">
+				<h:inputText id="loginEmail" name="loginEmail" value="#{loginBean.email}"
+					a:placeholder="Email" />
+				<h:message for="loginEmail" errorClass="control-label has-error"/>
+			</div>
+			<div class="ata-form-group">
+				<h:inputText id="loginPassword" value="#{loginBean.password}"
+					a:placeholder="Password" />
+				<h:message for="loginPassword" errorClass="control-label has-error"/>
+			</div>
+			<h:commandButton id="ata-loginBtn" value="Save" action="#{loginBean.checkCredentials()}"
+				styleClass="btn btn-primary" />
+			<h:message for="ata-loginBtn" errorClass="control-label has-error" />
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+
+</html>

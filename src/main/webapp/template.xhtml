@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<meta charset="UTF-8" />
 	<title>ATA - AwesomeToghethAir</title>
@@ -15,6 +16,20 @@
 	<div class="ata-body">
 		<header class="ata-header">
 			<!--Header navigation + logo  -->
+			<c:if test="#{empty loginBean.loggedinUser}">
+				<h:link value="Login" outcome="login" styleClass="btn btn-succes" />
+				<h:link value="Register here" outcome="register-user"
+					styleClass="btn btn-default" />
+			</c:if>
+			<c:if test="#{not empty loginBean.loggedinUser}">
+				<h:form>
+					<p>Welcome #{loginBean.loggedinUser}</p>
+					<h:commandLink action="#{loginBean.logout}" value="Logout"></h:commandLink>
+				</h:form>
+			</c:if>
+
+
+
 		</header>
 		<div class="ata-container">
 			<!--The page content  -->
