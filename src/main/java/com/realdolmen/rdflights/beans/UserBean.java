@@ -31,9 +31,10 @@ public class UserBean {
 		return user;
 	}
 
-	public String save(){
+	public void save() throws Exception {
 		usb.save(user);
-		return "index";
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect("login.jsf");
 	}
 	
 }
