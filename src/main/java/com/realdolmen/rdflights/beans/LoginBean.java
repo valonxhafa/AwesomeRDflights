@@ -7,64 +7,84 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
-import org.hibernate.validator.constraints.NotBlank;
-
+import com.realdolmen.rdflights.domain.User;
 import com.realdolmen.rdflights.service.LoginServiceBean;
-
+import com.realdolmen.rdflights.util.SessionUtils;
 
 @ManagedBean
 @SessionScoped
-public class LoginBean implements Serializable{
+public class LoginBean implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	@NotBlank
+
 	private String email;
-	@NotBlank
 	private String password;
-	private String errorString;
-	
+
+	private User user;
+	private String loggedinUser;
+
 	@Inject
 	LoginServiceBean lsb;
-	
-	
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public String getErrorString() {
-		return errorString;
+
+	public User getUser() {
+		return user;
 	}
-	public void setErrorString() {
-		this.errorString = "Incorrect Username and Passowrd";
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	public LoginBean(){
+
+	public String getLoggedinUser() {
+		return loggedinUser;
 	}
-	public String checkCredentials(){
+
+	public void setLoggedinUser(String loggedinUser) {
+		this.loggedinUser = loggedinUser;
+	}
+
+	public LoginBean() {
+	}
+
+	public String checkCredentials() {
 		Boolean credOk = lsb.checkCredentials(getEmail(), getPassword());
-		if(credOk){
+		if (credOk) {
+			user = lsb.findByEmail(getEmail());
+			setLoggedinUser(user.getFirstName());
 //			HttpSession session = SessionUtils.getSession();
-//			session.setAttribute("username", User u);
+//			session.setAttribute("loginEmail", loggedinUser );
 			return "index";
-		}else{
-			FacesContext.getCurrentInstance().addMessage(
-					null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"Incorrect Username and Passowrd",
-					"Please enter correct username and Password"));
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Incorrect Username and Passowrd", "Please enter correct username and Password"));
 			return "login";
 		}
+	}
+
+	 //logout event, invalidate session
+	public String logout() {
+		HttpSession session = SessionUtils.getSession();
+		session.invalidate();
+		return "login";
 	}
 }

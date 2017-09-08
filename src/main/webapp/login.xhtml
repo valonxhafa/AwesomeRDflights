@@ -12,11 +12,11 @@
 		<h1>Log in</h1>
 		<div class="ata-txtBlock  ata-errorBlock ">
 			<!--  Error messages if log in failed -->
-			<h3>#{loginBean.errorString}</h3>
+			<h3></h3>
 		</div>
-		<h:form styleClass="ata-registerForm" >
+		<h:form styleClass="ata-registerForm" method="post" >
 			<div class="ata-form-group">
-				<h:inputText id="loginEmail" value="#{loginBean.email}"
+				<h:inputText id="loginEmail" name="loginEmail" value="#{loginBean.email}"
 					a:placeholder="Email" />
 				<h:message for="loginEmail" errorClass="control-label has-error"/>
 			</div>

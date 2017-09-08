@@ -36,11 +36,5 @@ public class UserBean {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		ec.redirect("succes.xhtml");
 	}
-
-	public User getUserByEmail(String email) {
-		return usb.findByEmail(email);
-	}
 	
-	
-
 }

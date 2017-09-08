@@ -19,9 +19,4 @@ public class UserServiceBean implements UserServiceRemote{
 		return ur.save(user);
 	}
 
-	@Override
-	public User findByEmail(String email) {
-		return ur.findByEmail(email);
-	}
-
 }

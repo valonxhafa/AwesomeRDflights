@@ -24,4 +24,7 @@ public class LoginRepository {
 			 return false;
 		 }
 	}
+	public User findByEmail(String email){
+		return em.createQuery("select u from User u where u.email = :email", User.class).setParameter("email", email).getSingleResult();
+	}
 }

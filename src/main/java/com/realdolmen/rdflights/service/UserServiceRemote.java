@@ -7,5 +7,4 @@ import com.realdolmen.rdflights.domain.User;
 @Remote
 public interface UserServiceRemote {
 	User save(User user);
-	User findByEmail(String email);
 }

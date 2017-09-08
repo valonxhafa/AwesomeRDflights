@@ -19,4 +19,9 @@ public class LoginServiceBean implements LoginServiceRemote {
 		return lp.checkCredentials(email, password);
 	}
 
+	@Override
+	public User findByEmail(String email) {
+		return lp.findByEmail(email);
+	}
+
 }
