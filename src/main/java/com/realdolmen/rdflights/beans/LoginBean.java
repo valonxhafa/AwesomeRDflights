@@ -71,12 +71,10 @@ public class LoginBean implements Serializable {
 		if (credOk) {
 			user = lsb.findByEmail(getEmail());
 			setLoggedinUser(user.getFirstName());
-//			HttpSession session = SessionUtils.getSession();
-//			session.setAttribute("loginEmail", loggedinUser );
 			return "index";
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"Incorrect Username and Passowrd", "Please enter correct username and Password"));
+					"Incorrect Username and Passwrd", "Please enter correct username and Password"));
 			return "login";
 		}
 	}
