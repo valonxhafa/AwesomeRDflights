@@ -24,11 +24,17 @@ public class FlightRepository {
         return em.createQuery("select f from Flight f", Flight.class).getResultList();
     }
     
-    public List<Flight> findAllFlightsByCriteria(Long airportDeparture, Long airportArrival) {
+    public List<Flight> findAllFlightsByCriteria(Long airportDeparture, Long airportArrival, Date departureDate,
+			Date returnDate) {
     	try {
-        return em.createQuery("select f from Flight f where f.airportDeparture_id = :airportDeparture AND f.airportArrival_id = :airportArrival", Flight.class)
+        return em.createQuery("select f from Flight f where f.airportDeparture_id = :airportDeparture "
+        		+ "AND f.airportArrival_id = :airportArrival"
+        		+ "AND f.departureTime = :departureDate"
+        		+ "AND f:returnDate = :returnDate", Flight.class)
                 .setParameter("airportDeparture", airportDeparture )
                 .setParameter("airportArrival", airportArrival )
+                .setParameter("departureDate", departureDate )
+                .setParameter("returnDate", returnDate )
                 .getResultList();
     	}
  
@@ -40,10 +46,7 @@ public class FlightRepository {
     	
     }
     
-    
-    
-    
-    
+
     public List<Flight> findFlightsWithParams(Long airlineCompanyId, String flightClass, int numberOfSeats, Long departureAirportId, Long arrivalAirportId) {
         
             return em.createNamedQuery("SELECT f from Flight f inner join f.travelClasses t where" +

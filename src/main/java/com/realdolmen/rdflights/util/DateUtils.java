@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class DateUtils {
+	
     public static Date createDate(String pattern) {
         try {
             return new SimpleDateFormat("yyyy-MM-dd").parse(pattern);

@@ -4,48 +4,52 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:t="http://xmlns.jcp.org/jsf/composite/tags"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
         >
 
     <ui:composition template="template.xhtml">
         <ui:define name="pageContent">
-            <h1>Wilkommen meine freund! Search a flight!</h1>
-			
-			<h:form>
-			
-			<div class="form-group">
-			
-            <div class="form-group col-lg-6" >
-    			<input type="text" name="" class="form-control" id="" value="#{flight.id}"  placeholder="From"/>
-    		</div>
-    		
-            <div class="form-group col-lg-6" >
-        		<input type="text" name="" class="form-control" id="" value=""  placeholder="To"/>
-    		</div>
+        
+            <h1>Search a flight!</h1>
+		        <h:form id="searchForm">
+            <h:panelGrid columns="4">
                     
-           	</div>
-           	
-           <div class="form-group col-lg-6">
-               <div class="input-group" >
-               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                <input type="date" class="form-control" placeholder="depart" />
-                </div>
-            </div>
-            
-            <div class="form-group col-lg-6">
-                <div class="input-group" >
-                   <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                   <input type="text" class="form-control" placeholder="Passengers" />
-                </div>
-            </div>
-            
-             <div class="form-group col-lg-6">
-                <div class="input-group" >
-				<h:link styleClass="btn btn-default" outcome="flightresults"> Search for flights</h:link>
-                </div>
-            </div>
-            
-            	
+                   <p:outputLabel value="Search departure:" />
+                   
+                   	<h:panelGroup>
+			        <h:selectOneMenu id="searchDeparture" value="#{searchFlightBean.airportDeparture}" panelStyle="width:300px">
+			            <f:selectItems value="#{searchFlightBean.airports}" var="airport" itemLabel="#{airport.airportName}" itemValue="#{airport.id}" />
+			        </h:selectOneMenu>
+			        
+			        </h:panelGroup> 
+			        
+			        <p:outputLabel  value="Search arrival: " />
+			        
+			        <h:panelGroup>
+			        <h:selectOneMenu id="searchArrival" value="#{searchFlightBean.airportArrival}" panelStyle="width:300px">
+			            <f:selectItems value="#{searchFlightBean.airports}" var="airport" itemLabel="#{airport.airportName}" itemValue="#{airport.id}" />
+			        </h:selectOneMenu>
+			        
+			        </h:panelGroup> 
+			        
+        			<p:outputLabel  value="Select departure date " />
+        			<h:inputText id="depTime" value="#{searchFlightBean.departureTime}" a:placeholder="YYYY/MM/DD">
+        			<f:convertDateTime pattern="yyyy-MM-dd" />
+        			</h:inputText>
+        			
+        			<p:outputLabel  value="Search fly back date: " />
+        			<h:inputText id="arrTime" value="#{searchFlightBean.arrivalTime}" a:placeholder="YYYY/MM/DD"> 	
+        			<f:convertDateTime pattern="yyyy-MM-dd" />
+        			</h:inputText>     			
+			        
+			</h:panelGrid>
 			
+			    <h:commandButton value="YEEEE BOI"
+                             action="#{searchFlightBean.findAllFlightsByCriteria}"
+                             styleClass="btn" />
+
+        </h:form>			
 			
         </ui:define>
     </ui:composition>

@@ -1,5 +1,6 @@
 package com.realdolmen.rdflights.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -37,12 +38,14 @@ public class FlightServiceBean implements FlightServiceRemote {
 	@Override
 	public void removeFlight(long personId) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public List<Flight> findAllFlightsByCriteria(Long airportDeparture, Long airportArrival) {
-		return flightRepo.findAllFlightsByCriteria(airportDeparture, airportArrival);
+	public List<Flight> findAllFlightsByCriteria(Long airportDeparture, Long airportArrival, Date departuredate,
+			Date returndate) {
+		// TODO Auto-generated method stub
+		return flightRepo.findAllFlightsByCriteria(airportDeparture, airportArrival, departuredate , returndate);
 	}
+
 
 }
