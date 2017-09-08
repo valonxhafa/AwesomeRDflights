@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="/template.xhtml">
+	<ui:define name="pageContent">
+		<h1>Fill in your information below</h1>
+		<h:form styleClass="ata-registerForm">
+			<div class="ata-form-group">
+				<h:inputText id="firstName" value="#{userBean.user.firstName}"
+					a:placeholder="First Name" />
+				<h:message for="firstName" errorClass="ata-control-label ata-has-error" />
+			</div>
+			<div class="ata-form-group">
+				<h:inputText id="lastName" value="#{userBean.user.lastName}"
+					a:placeholder="Last Name" />
+				<h:message for="lastName" errorClass="ata-control-label ata-has-error" />
+			</div>
+			<div class="ata-form-group">
+				<h:outputLabel for="ata-gendere">Gender</h:outputLabel>
+				<h:selectOneMenu id="ata-gender" value="#{userBean.user.gender}">
+					<f:selectItem itemValue="M" itemLabel="M" />
+					<f:selectItem itemValue="F" itemLabel="F" />
+					<f:selectItem itemValue="X" itemLabel="X" />
+				</h:selectOneMenu>
+				<h:message for="ata-gender" errorClass="ata-control-label ata-has-error" />
+			</div>
+			<div class="ata-form-group">
+				<h:inputText id="birthDate" value="#{userBean.user.birthDate}"
+					a:placeholder="Birthdate (YYYY-MM-DD)">
+					<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:inputText>
+				<h:message for="birthDate" errorClass="ata-control-label ata-has-error" />
+			</div>
+			<div class="ata-form-group">
+				<h:inputText id="email" value="#{userBean.user.email}"
+					a:placeholder="Email" />
+				<h:message for="email" errorClass="ata-control-label ata-has-error" />
+			</div>
+			<div class="ata-form-group">
+				<h:inputText id="password" value="#{userBean.user.password}"
+					a:placeholder="Password" />
+			<h:message for="password" errorClass="ata-control-label ata-has-error" />
+			</div>
+			<div class="ata-form-group">
+				<h:inputText id="repeatPassword" a:placeholder="Repeat Password" />
+				<!-- <h:message for="birthDate" errorClass="control-label has-error"/> -->
+			</div>
+
+			<h:commandButton value="Save" action="#{userBean.save()}"
+				styleClass="btn btn-primary" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
