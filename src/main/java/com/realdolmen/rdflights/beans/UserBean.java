@@ -31,10 +31,9 @@ public class UserBean {
 		return user;
 	}
 
-	public void save() throws Exception {
+	public String save(){
 		usb.save(user);
-		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		ec.redirect("succes.xhtml");
+		return "index";
 	}
 	
 }

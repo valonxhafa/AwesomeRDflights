@@ -7,7 +7,6 @@
 
 	<persistence-unit name="rdflightsPU" transaction-type="JTA">
 		<jta-data-source>java:/rd/datasources/AwesomeFlightAirDataSource</jta-data-source>
-		
 	</persistence-unit>
 
 </persistence>
