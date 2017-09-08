@@ -15,6 +15,9 @@ public class PersonPersistenceTest extends AbstractPersistenceTest {
         User person = new User();
         person.setFirstName("Jane");
         person.setLastName("Doe");
+        person.setEmail("Jane.doe@gmail.com");
+        person.setGender("V");
+        person.setPassword("test");
         em.persist(person);
         assertNotNull(person.getId());
     }
