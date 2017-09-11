@@ -45,14 +45,29 @@ public class User extends AbstractMaster implements Serializable {
     public User() {
     }
     
-    public User(String firstName, String lastName, Date birthDate,String gender, Role role) {
+    /*CONSTRUCTOR FOR USER*/
+    public User(String firstName, String lastName,String email, String passw, Date birthDate,String gender) {
         this.firstName 	= firstName;
         this.lastName 	= lastName;
+        this.email		= email;
+        this.password	= passw;
         this.birthDate 	= birthDate;
         this.gender		= gender;
-        this.role	 	= role;
+        this.role	 	= Role.CUSTOMER;
     }
     
+    /*CONSTRUCTOR FOR AIRLINECOMPANY*/
+    public User(String firstName, String lastName,String email, String passw,String gender, String airlineCompanyCode, String airlineCompanyName, String airlineCompanyDesc){
+    	this.firstName 					= firstName;
+        this.lastName 					= lastName;
+        this.gender						= gender;
+        this.email						= email;
+        this.password					= passw;
+        this.role	 					= Role.AIRLINECOMPANY;
+        this.airlineCompanyCode 		= airlineCompanyCode;
+        this.airlineCompanyName			= airlineCompanyName;
+        this.airlineCompanydescription 	= airlineCompanyDesc;
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -84,7 +99,6 @@ public class User extends AbstractMaster implements Serializable {
 		return role;
 	}
 	public void setRole(Role role) {
-		role = Role.CUSTOMER;
 		this.role = role;
 	}
 	public String getEmail() {
