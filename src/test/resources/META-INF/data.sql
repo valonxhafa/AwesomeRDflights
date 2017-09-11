@@ -1,3 +1,7 @@
+
+--------------------------------------------------------
+--  Inserting Customers
+--------------------------------------------------------
 INSERT INTO user(firstName, lastName, email, gender, password) values('Johnny', 'Doe', 'joendoe@email.com', 'M', 'test123');
 INSERT INTO user(firstName, lastName, email, gender, password) values('Jane', 'Doe','joendoe2@email.com', 'M', 'test123');
 INSERT INTO user(firstName, lastName, email, gender, password) values('Tyler', 'Turner', 'TylerTurner@email.com', 'M', 'test123');
@@ -6,6 +10,9 @@ INSERT INTO user(firstName, lastName, email, gender, password) values('Allan', '
 INSERT INTO user(firstName, lastName, email, gender, password) values('Test', 'test', 'test@test.com', 'M', 'test123');
 COMMIT;
 
+--------------------------------------------------------
+--  Inserting Regions
+--------------------------------------------------------
 INSERT INTO region (updateTime,version,regionName) VALUES (null,1,'Pacific');
 INSERT INTO region (updateTime,version,regionName) VALUES (null,1,'America');
 INSERT INTO region (updateTime,version,regionName) VALUES (null,1,'Atlantic');
@@ -98,6 +105,8 @@ commit;
 --------------------------------------------------------
 
 INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,2,{ts '2017-09-20 19:15:10.'},{ts '2017-09-20 18:00:00.'}, 7 , 'ASI-1234');
+INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,2,{ts '2017-09-22 15:15:10.'},{ts '2017-09-22 14:00:00.'}, 7 , 'ASI-1234');
+INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,2,{ts '2017-09-24 13:15:10.'},{ts '2017-09-24 12:00:00.'}, 7 , 'ASI-1234');
 INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,2,1,{ts '2017-09-20 19:15:10.'},{ts '2017-09-20 18:00:00.'}, 8 , 'ASI-4567');
 INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,100,{ts '2017-09-20 19:15:10.'},{ts '2017-09-20 18:00:00.'}, 9 , 'ASI-4567');
 INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,200,{ts '2017-09-20 19:15:10.'},{ts '2017-09-20 18:00:00.'}, 10 , 'ASI-4098');
