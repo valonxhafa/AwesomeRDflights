@@ -21,6 +21,11 @@ public class FlightRepository {
     @PersistenceContext(unitName="rdflightsPU")
     EntityManager em;
     
+    public Flight saveFlight(Flight flight) {
+        em.persist(flight);
+        return flight;
+    }
+    
     public List<Flight> findAll() {
         return em.createQuery("select f from Flight f", Flight.class).getResultList();
     }
@@ -28,41 +33,24 @@ public class FlightRepository {
     public List<Flight> findAllFlightsByCriteria(Long airportDeparture, Long airportArrival, Date departureDate,
 			Date returnDate) {
     	try {
-        return em.createQuery("select f from Flight f where f.airportDeparture_id = :airportDeparture "
-        		+ "AND f.airportArrival_id = :airportArrival"
-        		+ "AND f.departureTime = :departureDate"
-        		+ "AND f:returnDate = :returnDate", Flight.class)
-                .setParameter("airportDeparture", airportDeparture )
-                .setParameter("airportArrival", airportArrival )
-                .setParameter("departureDate", departureDate )
-                .setParameter("returnDate", returnDate )
+        return em.createQuery("select f from Flight f where f.airportDeparture.id = :airportdeparture"
+        		+ " AND f.airportArrival.id = :airportarrival"
+        		+ " AND DATE(f.departureTime) = :departureDate", Flight.class)
+        		//+ " AND DATE(f.returnDate) = :returnDate", Flight.class)
+        		.setParameter("airportdeparture", airportDeparture)
+        		.setParameter("airportarrival", airportArrival)
+        		.setParameter("departureDate", departureDate )
+        		//.setParameter("returnDate", returnDate)
+        		//+ " DATE(f.departureTime) = :departureDate", Flight.class)
                 .getResultList();
     	}
  
     	catch (NoResultException e) {
-        logger.error("Oops", e);
+        logger.error("Oopsie, error was ----====", e);
     	}
     	
     	return Collections.emptyList();
-    	
     }
     
-
-    public List<Flight> findFlightsWithParams(Long airlineCompanyId, String flightClass, int numberOfSeats, Long departureAirportId, Long arrivalAirportId) {
-        
-            return em.createNamedQuery("SELECT f from Flight f inner join f.travelClasses t where" +
-            " t.name = :flightClass " +
-            "AND t.remainingSeats >= :numberOfSeats " +
-            "AND f.airlineCompany.id = :airlineCompanyId " +
-            "AND f.departure.id = :departureAirportId " +
-            "AND f.arrival.id = :arrivalAirportId", Flight.class)
-                    .setParameter("airlineCompanyId", airlineCompanyId)
-                    .setParameter("flightClass", flightClass)
-                    .setParameter("numberOfSeats", numberOfSeats)
-                    .setParameter("departureAirportId", departureAirportId)
-                    .setParameter("arrivalAirportId", arrivalAirportId)
-                    .getResultList();
-
-    }
 
 }

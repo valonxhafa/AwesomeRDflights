@@ -36,5 +36,5 @@ public class UserBean {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		ec.redirect("login.jsf");
 	}
-	
+
 }

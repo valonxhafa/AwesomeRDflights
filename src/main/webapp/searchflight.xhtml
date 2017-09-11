@@ -15,40 +15,41 @@
 		        <h:form id="searchForm">
             <h:panelGrid columns="4">
                     
-                   <p:outputLabel value="Search departure:" />
-                   
-                   	<h:panelGroup>
-			        <h:selectOneMenu id="searchDeparture" value="#{searchFlightBean.airportDeparture}" panelStyle="width:300px">
-			            <f:selectItems value="#{searchFlightBean.airports}" var="airport" itemLabel="#{airport.airportName}" itemValue="#{airport.id}" />
-			        </h:selectOneMenu>
-			        
-			        </h:panelGroup> 
+                   <p:outputLabel value="Search departure:" />            
+                   	 <h:panelGroup>     
+			         	<p:selectOneMenu id="searchDeparture" value="#{searchFlightBean.airportDeparture}" panelStyle="width:300px"
+                                     effect="fade" style="width:300px" filter="true" filterMatchMode="contains">
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                       		<f:selectItems value="#{searchFlightBean.airports}" var="airport" itemLabel="#{airport.airportName}" itemValue="#{airport.id}"/>
+                    	</p:selectOneMenu>
+			          </h:panelGroup> 
 			        
 			        <p:outputLabel  value="Search arrival: " />
-			        
 			        <h:panelGroup>
-			        <h:selectOneMenu id="searchArrival" value="#{searchFlightBean.airportArrival}" panelStyle="width:300px">
+			        
+			        <p:selectOneMenu id="searchArrival" value="#{searchFlightBean.airportArrival}" panelStyle="width:300px"
+			        				effect="fade" style="width:300px" filter="true" filterMatchMode="contains">
+			            <f:selectItem itemLabel="Arrival" itemValue="" />
 			            <f:selectItems value="#{searchFlightBean.airports}" var="airport" itemLabel="#{airport.airportName}" itemValue="#{airport.id}" />
-			        </h:selectOneMenu>
+			        </p:selectOneMenu>
 			        
 			        </h:panelGroup> 
 			        
-        			<p:outputLabel  value="Select departure date " />
-        			<h:inputText id="depTime" value="#{searchFlightBean.departureTime}" a:placeholder="YYYY/MM/DD">
-        			<f:convertDateTime pattern="yyyy-MM-dd" />
-        			</h:inputText>
-        			
-        			<p:outputLabel  value="Search fly back date: " />
-        			<h:inputText id="arrTime" value="#{searchFlightBean.arrivalTime}" a:placeholder="YYYY/MM/DD"> 	
-        			<f:convertDateTime pattern="yyyy-MM-dd" />
-        			</h:inputText>     			
+			        <p:outputLabel  value="Departure date: " />
+			        <h:panelGroup>
+                    <p:calendar id="departuredateID" pattern="yyyy-MM-dd" value="#{searchFlightBean.departureTime}" mindate="#{searchFlightBean.currentDate}" />
+                	</h:panelGroup> 
+                	
+                	<p:outputLabel  value="Return date: " />
+			        <h:panelGroup>
+                    <p:calendar id="returndateID" pattern="dd/MM/yyyy" value="#{searchFlightBean.arrivalTime}" mindate="#{searchFlightBean.currentDate}" />
+                	</h:panelGroup> 	
 			        
 			</h:panelGrid>
 			
 			    <h:commandButton value="YEEEE BOI"
-                             action="#{searchFlightBean.findAllFlightsByCriteria}"
+                             action="#{searchFlightBean.findAllFlightsByCriteria()}"
                              styleClass="btn" />
-
         </h:form>			
 			
         </ui:define>

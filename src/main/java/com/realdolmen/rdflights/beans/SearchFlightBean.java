@@ -1,31 +1,31 @@
 package com.realdolmen.rdflights.beans;
 
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import com.realdolmen.rdflights.domain.Airport;
 import com.realdolmen.rdflights.domain.Flight;
 import com.realdolmen.rdflights.domain.User;
 import com.realdolmen.rdflights.service.AirportServiceBean;
 import com.realdolmen.rdflights.service.FlightServiceBean;
-import org.primefaces.event.SelectEvent;
 
 @ManagedBean
 public class SearchFlightBean {
 	
-	private Long airportArrival;
 	private Long airportDeparture;
-	private Date arrivalTime;
+	private Long airportArrival;
 	private Date departureTime;
+	private Date arrivalTime;
+	private Date returnDate;
+	private String tempDepTime;
 	private User airlineCompany;
 	private String flightNumber;
 	private List<Airport> airports;
 	private List<Flight> flights;
+	private Date currentDate;
     @Inject
     private FlightServiceBean flightService;
     @Inject
@@ -34,29 +34,29 @@ public class SearchFlightBean {
     @PostConstruct
     public void postConstruct(){
        airports =  airportService.findAllAirports(); //fill list to use on search departure/destination 
+       currentDate = Calendar.getInstance().getTime();
     }
     
   //-----------------------METHODS---------------------------------------//
-    
-    //Nodig voor Calendar (dat nog niet werkt)
-    public void onDateSelect(SelectEvent event) {
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
-    }
     
     public String findAirportById(Long id){
         return airportService.findAirportById(id).getAirportName();
     }
     
-    public List<Flight> findAllFlights() {
+
+	public List<Flight> findAllFlights() {
         return flightService.findAllFlights();
     }
     
     public String findAllFlightsByCriteria() {
-        //flights =  flightService.findAllFlightsByCriteria(airportDeparture, airportArrival, departureTime, arrivalTime);
+        flights =  flightService.findAllFlightsByCriteria(airportDeparture, airportArrival, departureTime, returnDate);
         return "flightresults";
     }
+    
+    public void saveFlight() {
+    	Flight flight = new Flight(departureTime,"hey..");
+    	flightService.saveFlight(flight);
+     }
     
 
     //-----------------------GETTERS/SETTERS---------------------------------------//
@@ -106,7 +106,9 @@ public class SearchFlightBean {
 		return departureTime;
 	}
 
-	public void setDepartureTime(Date departureTime) {
+	public void setDepartureTime(java.util.Date departureTime) {
+
+		
 		this.departureTime = departureTime;
 	}
 
@@ -133,6 +135,33 @@ public class SearchFlightBean {
 	public void setFlightService(FlightServiceBean flightService) {
 		this.flightService = flightService;
 	}
+
+	public List<Flight> getFlights() {
+		return flights;
+	}
+
+	public void setFlights(List<Flight> flights) {
+		this.flights = flights;
+	}
+
+	public Date getCurrentDate() {
+		return currentDate;
+	}
+
+	public void setCurrentDate(Date currentDate) {
+		this.currentDate = currentDate;
+	}
+
+	public String getTempDepTime() {
+		return tempDepTime;
+	}
+
+	public void setTempDepTime(String tempDepTime) {
+		this.tempDepTime = tempDepTime;
+	}
+	
+	
     
+	
     
 }

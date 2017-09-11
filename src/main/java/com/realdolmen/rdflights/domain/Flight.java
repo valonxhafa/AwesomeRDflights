@@ -1,7 +1,6 @@
 package com.realdolmen.rdflights.domain;
 
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -12,16 +11,20 @@ import javax.validation.constraints.NotNull;
 public class Flight extends AbstractMaster {
 	
 	@ManyToOne
-	private Airport airportArrival;
-	@ManyToOne
 	private Airport airportDeparture;
+	
+	@ManyToOne
+	private Airport airportArrival;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date departureTime;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date arrivalTime;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date departureTime;
+	
 	@ManyToOne
 	private User airlineCompany;
+	
 	@NotNull
 	private String flightNumber;
 	
@@ -30,6 +33,14 @@ public class Flight extends AbstractMaster {
 	public Flight() {
 		super();
 	}
+
+	public Flight(Date departureTime, String flightNumber) {
+		super();
+		this.departureTime = departureTime;
+		this.flightNumber = flightNumber;
+	}
+
+
 
 	public Airport getAirportArrival() {
 		return airportArrival;
@@ -55,6 +66,7 @@ public class Flight extends AbstractMaster {
 		this.arrivalTime = arrivalTime;
 	}
 
+
 	public Date getDepartureTime() {
 		return departureTime;
 	}
@@ -71,15 +83,6 @@ public class Flight extends AbstractMaster {
 		this.airlineCompany = airlineCompany;
 	}
 	
-/*
-	public Travel getTravelReport() {
-		return travelReport;
-	}
-
-	public void setTravelReport(Travel travelReport) {
-		this.travelReport = travelReport;
-	}
-*/
 	public String getFlightNumber() {
 		return flightNumber;
 	}

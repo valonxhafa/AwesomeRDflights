@@ -10,25 +10,36 @@
         <ui:define name="pageContent">
             <h1>All flights</h1>
 		
-		            <h:dataTable id="flightstable" value="#{flightBean.findAllFlights()}" var="flight" styleClass="table table-striped">
+		        <h:dataTable id="flightstable" value="#{searchFlightBean.flights}" var="flight" styleClass="table table-striped">
+		        
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Id"/>
                     </f:facet>
-                    <h:outputText value="#{flight.id}"/>
+				<h:outputLabel value="#{searchFlightBean.departureTime}" >Departure time</h:outputLabel>
                 </h:column>
+                
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Flight number"/>
                     </f:facet>
-                    <h:outputText value="#{flight.airportArrival.airportName}"/>
+                    <h:outputText value="#{flight.airportArrival.code}"/>
                 </h:column>
+                
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Airline company"/>
+                        <h:outputText value="Flight arrival time"/>
                     </f:facet>
-                    <h:outputText value="#{flight.airlineCompany.firstName}"/>
+                    <h:outputText value="#{flight.arrivalTime}"/>
                 </h:column>
+                
+                    <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Airline company last name xD"/>
+                    </f:facet>
+                    <h:outputText value="#{flight.airlineCompany.lastName}"/>
+                </h:column>
+                
             </h:dataTable>
 
             <h:link styleClass="btn btn-default" outcome="index"><span class="glyphicon glyphicon-home"></span> Home</h:link>
