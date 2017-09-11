@@ -30,6 +30,10 @@ public class FlightRepository {
         return em.createQuery("select f from Flight f", Flight.class).getResultList();
     }
     
+    public Flight findFlightById(Long id) {
+        return em.createQuery("select f from Flight f where f.id = :id", Flight.class).setParameter("id", id).getSingleResult();
+    }
+    
     public List<Flight> findAllFlightsByCriteria(Long airportDeparture, Long airportArrival, Date departureDate,
 			Date returnDate) {
     	try {

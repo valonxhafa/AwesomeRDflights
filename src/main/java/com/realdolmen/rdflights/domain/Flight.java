@@ -28,7 +28,7 @@ public class Flight extends AbstractMaster {
 	@NotNull
 	private String flightNumber;
 	
-	//private Travel travelReport;
+//	private Travel basePrice;
 	
 	public Flight() {
 		super();
@@ -39,8 +39,14 @@ public class Flight extends AbstractMaster {
 		this.departureTime = departureTime;
 		this.flightNumber = flightNumber;
 	}
-
-
+ 
+	/*Flight WITH baseprice*/
+	public Flight(Date departureTime,Date arrivalTime, String flightNumber) {
+		super();
+		this.departureTime 	= departureTime;
+		this.flightNumber 	= flightNumber;
+		this.arrivalTime 	= arrivalTime;
+	}
 
 	public Airport getAirportArrival() {
 		return airportArrival;

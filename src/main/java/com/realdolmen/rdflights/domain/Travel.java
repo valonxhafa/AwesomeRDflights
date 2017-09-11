@@ -31,7 +31,10 @@ public class Travel{
 	public Travel() {
 		super();
 	}
-
+	public Travel(BigDecimal bp) {
+		super();
+		this.basePrice = bp;
+	}
 	//--------------------------------------------------//
 	
 	public BigDecimal getBasePrice() {
