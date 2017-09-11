@@ -20,8 +20,7 @@ public class FlightServiceBean implements FlightServiceRemote {
 
 	@Override
 	public Flight saveFlight(Flight flight) {
-		// TODO Auto-generated method stub
-		return null;
+		return flightRepo.saveFlight(flight);
 	}
 
 	@Override

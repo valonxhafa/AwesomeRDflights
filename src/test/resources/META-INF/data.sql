@@ -17,10 +17,12 @@ INSERT INTO region (updateTime,version,regionName) VALUES (null,1,'Australia');
 INSERT INTO region (updateTime,version,regionName) VALUES (null,1,'Antarctica');
 COMMIT;
 
-insert into Airport(airportCode, airportName, country, available, region_id) values('BELC', 'Airport Brussel Zaventem', 'Belgium', TRUE, 4 );
+insert into Airport(airportCode, airportName, country, available, region_id) values('BELZ', 'Airport Brussel Zaventem', 'Belgium', TRUE, 4 );
 insert into Airport(airportCode, airportName, country, available, region_id) values('GERK', 'Kassel Calden', 'Germany', TRUE, 4);
+insert into Airport(airportCode, airportName, country, available, region_id) values('BELC', 'Airport Charleroi', 'Belgium', TRUE, 4);
 COMMIT;
 
-INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,2,{ts '2016-09-12 19:15:10.'},{ts '2016-09-12 18:00:00.'}, 2 , 'ASI-1234');
-INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,2,1,{ts '2016-09-12 19:15:10.'},{ts '2016-09-12 18:00:00.'}, 3 , 'ASI-4567');
+INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,2,{ts '2017-09-12 19:15:10.'},{ts '2017-09-12 18:00:00.'}, 2 , 'ASI-1234');
+INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,2,1,{ts '2017-09-12 19:15:10.'},{ts '2017-09-12 18:00:00.'}, 3 , 'ASI-4567');
+INSERT INTO Flight (updateTime,version,airportarrival_id,airportdeparture_id,arrivalTime,departureTime,airlinecompany_id,flightnumber) VALUES (null,1,1,3,{ts '2017-09-12 19:15:10.'},{ts '2017-09-12 18:00:00.'}, 4 , 'ASI-4567');
 COMMIT;

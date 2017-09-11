@@ -20,9 +20,9 @@ public class Ticket extends AbstractMaster {
 	private BigDecimal soldPrice;
 	@ManyToOne
 	private Booking booking;
-	
 	@Embedded
 	private Travel travelInformation;
+
 	
 
 	public Ticket() {
