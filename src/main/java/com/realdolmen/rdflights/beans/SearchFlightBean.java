@@ -5,14 +5,19 @@ import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import com.realdolmen.rdflights.domain.Airport;
 import com.realdolmen.rdflights.domain.Flight;
+import com.realdolmen.rdflights.domain.Ticket;
 import com.realdolmen.rdflights.domain.User;
 import com.realdolmen.rdflights.service.AirportServiceBean;
 import com.realdolmen.rdflights.service.FlightServiceBean;
 
 @ManagedBean
+@SessionScoped
 public class SearchFlightBean {
 	
 	private Long airportDeparture;
@@ -26,6 +31,7 @@ public class SearchFlightBean {
 	private List<Airport> airports;
 	private List<Flight> flights;
 	private Date currentDate;
+	private Integer passengersquantity;
     @Inject
     private FlightServiceBean flightService;
     @Inject
@@ -36,7 +42,7 @@ public class SearchFlightBean {
        airports =  airportService.findAllAirports(); //fill list to use on search departure/destination 
        currentDate = Calendar.getInstance().getTime();
     }
-    
+
   //-----------------------METHODS---------------------------------------//
     
     public String findAirportById(Long id){
@@ -159,7 +165,27 @@ public class SearchFlightBean {
 	public void setTempDepTime(String tempDepTime) {
 		this.tempDepTime = tempDepTime;
 	}
+
+	public Date getReturnDate() {
+		return returnDate;
+	}
+
+	public void setReturnDate(Date returnDate) {
+		this.returnDate = returnDate;
+	}
+
+	public Integer getPassengersquantity() {
+		return passengersquantity;
+	}
+
+	public void setPassengersquantity(Integer passengersquantity) {
+		this.passengersquantity = passengersquantity;
+	}
 	
+	  public String saveTickets(Long id) {
+	    	System.out.println("SAVING TICKETS-----");
+	        return "ticketforms";
+	    }
 	
     
 	
