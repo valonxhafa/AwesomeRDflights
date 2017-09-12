@@ -31,7 +31,6 @@ public class User extends AbstractMaster implements Serializable {
     @Column(unique = true)
     @NotBlank
     private String email;
-    @NotBlank
     private String password;
     private String tel;
     private Date birthDate;
@@ -55,6 +54,16 @@ public class User extends AbstractMaster implements Serializable {
         this.gender		= gender;
         this.role	 	= Role.CUSTOMER;
     }
+    
+    public User(String firstName, String lastName,String email, Date birthDate,String gender) {
+        this.firstName 	= firstName;
+        this.lastName 	= lastName;
+        this.email		= email;
+        this.birthDate 	= birthDate;
+        this.gender		= gender;
+        this.role	 	= Role.PASSENGER;
+    }
+   
     
     /*CONSTRUCTOR FOR AIRLINECOMPANY*/
     public User(String firstName, String lastName,String email, String passw,String gender, String airlineCompanyCode, String airlineCompanyName, String airlineCompanyDesc){

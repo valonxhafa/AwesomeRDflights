@@ -18,8 +18,8 @@ public class Ticket extends AbstractMaster {
 	private BigDecimal buyPrice;
 	
 	private BigDecimal soldPrice;
-	@ManyToOne
-	private Booking booking;
+	//@ManyToOne
+	//private Booking booking; VERGEET GETTER AND SETTER NIET TOE TE VOEGEN 
 	@Embedded
 	private Travel travelInformation;
 	@Transient
@@ -66,20 +66,6 @@ public class Ticket extends AbstractMaster {
 	public void setSoldPrice(BigDecimal soldPrice) {
 		this.soldPrice = soldPrice;
 	}
-
-
-
-	public Booking getBooking() {
-		return booking;
-	}
-
-
-
-	public void setBooking(Booking booking) {
-		this.booking = booking;
-	}
-
-
 
 	public Travel getTravelInformation() {
 		return travelInformation;

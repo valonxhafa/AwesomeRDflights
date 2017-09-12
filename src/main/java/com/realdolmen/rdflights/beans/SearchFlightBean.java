@@ -79,7 +79,7 @@ public class SearchFlightBean {
 
     //-----------------------GETTERS/SETTERS---------------------------------------//
 
-    
+
 	public List<Airport> getAirports() {
 		return airports;
 	}

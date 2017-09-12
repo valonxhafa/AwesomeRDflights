@@ -58,10 +58,18 @@
 				</h:inputText>
 				<h:message for="birthDate" errorClass="ata-control-label ata-has-error" />
 			</div>
+			
+			<div class="ata-form-group">
+				<h:inputText id="email" value="#{ticketBean.passenger.email}"
+					a:placeholder="Email" />
+				<h:message for="email" errorClass="ata-control-label ata-has-error" />
+			</div>
 
 			<h:commandButton value="Save" action="#{ticketBean.saveTicket()}"
 				styleClass="btn btn-primary" />
 			</h:form>
+			
+			
 		
 
             <h:link styleClass="btn btn-default" outcome="index"><span class="glyphicon glyphicon-home"></span> Home</h:link>

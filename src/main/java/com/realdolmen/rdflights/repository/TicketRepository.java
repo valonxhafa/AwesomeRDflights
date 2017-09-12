@@ -20,6 +20,7 @@ public class TicketRepository {
     EntityManager em;
     
     public Ticket saveTicket(Ticket ticket, User passenger ) {
+    	em.persist(passenger);
 		ticket.setPassenger(passenger);
 		em.persist(ticket);
         return ticket;

@@ -12,6 +12,9 @@
 		<class>com.realdolmen.rdflights.domain.Region</class>
 		<class>com.realdolmen.rdflights.domain.Airport</class>
 		<class>com.realdolmen.rdflights.domain.Flight</class>
+		<class>com.realdolmen.rdflights.domain.Ticket</class>
+		<class>com.realdolmen.rdflights.domain.Travel</class>
+		<class>com.realdolmen.rdflights.domain.EmployeeOverride</class>
 
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action"
