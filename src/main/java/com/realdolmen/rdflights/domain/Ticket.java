@@ -6,6 +6,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,14 +15,15 @@ public class Ticket extends AbstractMaster {
 	@OneToOne
 	private User passenger;
 	
-	@NotNull
 	private BigDecimal buyPrice;
-	@NotNull
+	
 	private BigDecimal soldPrice;
 	@ManyToOne
 	private Booking booking;
 	@Embedded
 	private Travel travelInformation;
+	@Transient
+	private int local_counter;
 
 	
 
@@ -88,6 +90,19 @@ public class Ticket extends AbstractMaster {
 	public void setTravelInformation(Travel travelInformation) {
 		this.travelInformation = travelInformation;
 	}
+
+
+
+	public int getLocal_counter() {
+		return local_counter;
+	}
+
+
+
+	public void setLocal_counter(int local_counter) {
+		this.local_counter = local_counter;
+	}
+	
 	
 	//--------------------------------------------------//
 	

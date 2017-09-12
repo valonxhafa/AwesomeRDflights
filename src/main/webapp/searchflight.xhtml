@@ -43,7 +43,9 @@
                 	<p:outputLabel  value="Return date: " />
 			        <h:panelGroup>
                     <p:calendar id="returndateID" pattern="dd/MM/yyyy" value="#{searchFlightBean.arrivalTime}" mindate="#{searchFlightBean.currentDate}" />
-                	</h:panelGroup> 	
+                	</h:panelGroup>
+                	
+                	<h:inputText id="passquantity" value="#{searchFlightBean.passengersquantity}" a:placeholder="#" />
 			        
 			</h:panelGrid>
 			

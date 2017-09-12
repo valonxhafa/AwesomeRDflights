@@ -1,13 +1,12 @@
 package com.realdolmen.rdflights.beans;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import com.realdolmen.rdflights.domain.Airport;
 import com.realdolmen.rdflights.domain.Flight;
@@ -31,7 +30,8 @@ public class SearchFlightBean {
 	private List<Airport> airports;
 	private List<Flight> flights;
 	private Date currentDate;
-	private Integer passengersquantity;
+	private int passengersquantity;
+	private List<Ticket> tickets = new ArrayList<>();
     @Inject
     private FlightServiceBean flightService;
     @Inject
@@ -41,6 +41,7 @@ public class SearchFlightBean {
     public void postConstruct(){
        airports =  airportService.findAllAirports(); //fill list to use on search departure/destination 
        currentDate = Calendar.getInstance().getTime();
+       
     }
 
   //-----------------------METHODS---------------------------------------//
@@ -59,11 +60,22 @@ public class SearchFlightBean {
         return "flightresults";
     }
     
-    public void saveFlight() {
-    	Flight flight = new Flight(departureTime,"hey..");
-    	flightService.saveFlight(flight);
-     }
+	public String saveTickets() {
+		FillEmptyTicketList();
+		passengersquantity = 0;
+        return "ticketforms";
+    }
     
+
+    public void FillEmptyTicketList(){
+    	for (int i = 0; i < passengersquantity; i++) {
+        	Ticket ticket = new Ticket();
+        	ticket.setLocal_counter(i + 1);
+        	tickets.add(ticket);
+
+		}
+
+    }
 
     //-----------------------GETTERS/SETTERS---------------------------------------//
 
@@ -173,21 +185,25 @@ public class SearchFlightBean {
 	public void setReturnDate(Date returnDate) {
 		this.returnDate = returnDate;
 	}
-
-	public Integer getPassengersquantity() {
+	
+	public int getPassengersquantity() {
 		return passengersquantity;
 	}
 
-	public void setPassengersquantity(Integer passengersquantity) {
+	public void setPassengersquantity(int passengersquantity) {
 		this.passengersquantity = passengersquantity;
 	}
+
 	
-	  public String saveTickets(Long id) {
-	    	System.out.println("SAVING TICKETS-----");
-	        return "ticketforms";
-	    }
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+	
 	
     
 	
-    
 }

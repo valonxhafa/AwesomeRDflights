@@ -46,14 +46,7 @@
                 </h:column>
                 
                 <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="# Passengers"/>
-                    </f:facet>
-                   
-                   
-                 
-                    
-                	<h:commandButton id="saveticket_#{flight.id}" value="Book now!" styleClass="btn" action="#{searchFlightBean.saveTickets(flight.id)}"/>
+                	<h:commandButton id="saveticket_#{flight.id}" value="Book now!" styleClass="btn" action="#{searchFlightBean.saveTickets()}"/>
                 
                 </h:column>
                 

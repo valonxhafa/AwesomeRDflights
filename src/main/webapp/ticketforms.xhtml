@@ -11,6 +11,58 @@
     <ui:composition template="template.xhtml">
         <ui:define name="pageContent">
             <h1> Ticket reservation </h1> <h:outputText />
+            
+           <h:form>
+		     
+            <h:outputText value="#{ticketBean.passengersquantity}"/>
+           
+               <h:outputText value="Passenger #{ticket.local_counter}"/>
+			<div class="ata-form-group">
+
+			</div>
+			
+			
+        
+			<div class="ata-form-group">
+				<h:inputText id="firstName" value="#{ticketBean.passenger.firstName}"
+					a:placeholder="First Name" />
+				<h:message for="firstName" errorClass="ata-control-label ata-has-error" />
+			</div>
+			
+			
+			
+			<div class="ata-form-group">
+				<h:inputText id="lastName" value="#{ticketBean.passenger.lastName}"
+					a:placeholder="Last Name" />
+				<h:message for="lastName" errorClass="ata-control-label ata-has-error" />
+			</div>
+			
+			
+	
+			<div class="ata-form-group">
+				<h:outputLabel for="ata-gendere">Gender</h:outputLabel>
+				<h:selectOneMenu id="ata-gender" value="#{ticketBean.passenger.gender}">
+					<f:selectItem itemValue="M" itemLabel="M" />
+					<f:selectItem itemValue="F" itemLabel="F" />
+					<f:selectItem itemValue="X" itemLabel="X" />
+				</h:selectOneMenu>
+				<h:message for="ata-gender" errorClass="ata-control-label ata-has-error" />
+			</div>
+	
+			
+		
+			<div class="ata-form-group">
+				<h:inputText id="birthDate" value="#{ticketBean.passenger.birthDate}"
+					a:placeholder="Birthdate (YYYY-MM-DD)">
+					<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:inputText>
+				<h:message for="birthDate" errorClass="ata-control-label ata-has-error" />
+			</div>
+
+			<h:commandButton value="Save" action="#{ticketBean.saveTicket()}"
+				styleClass="btn btn-primary" />
+			</h:form>
+		
 
             <h:link styleClass="btn btn-default" outcome="index"><span class="glyphicon glyphicon-home"></span> Home</h:link>
         </ui:define>
