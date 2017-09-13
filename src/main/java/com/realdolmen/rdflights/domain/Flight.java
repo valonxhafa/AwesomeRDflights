@@ -1,10 +1,13 @@
 package com.realdolmen.rdflights.domain;
 
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -29,6 +32,10 @@ public class Flight extends AbstractMaster {
 	private String flightNumber;
 	
 //	private Travel basePrice;
+	
+	//This variable is used to show editable or text view to the use (first usage in AirlineCompanyBean)
+	@Transient
+	private boolean editable;
 	
 	public Flight() {
 		super();
@@ -96,10 +103,13 @@ public class Flight extends AbstractMaster {
 	public void setFlightNumber(String flightNumber) {
 		this.flightNumber = flightNumber;
 	}
-	
-	
-	
-	
-	
+
+	public boolean isEditable() {
+		return editable;
+	}
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}
 	
 }

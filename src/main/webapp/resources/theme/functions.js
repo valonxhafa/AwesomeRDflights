@@ -115,6 +115,12 @@
 				$(".ata-signup-class").prop("disabled", false).css("opacity", "1");
 			}
 		});
+		$(".ata-add-flight").click(function(){
+			$(".ata-partner-view.ata-overlay-container").addClass("shown");
+		});
+		$(".ata-close-overlay").click(function(){
+			$(".ata-partner-view.ata-overlay-container").removeClass("shown");
+		});
 		/* - Scrolling Navigation */
 		var scroll	=	$(window).scrollTop();
 		var height	=	$(window).height();
@@ -189,7 +195,11 @@
 		$(".datepicker").datetimepicker({
 			pickTime: false
 		});	
-		
+		/* - Add flight Form :: DatePicker */
+		$(".datepicker-partner-flight").datetimepicker({
+			pickTime: true,
+			format: "yyyy-MM-dd"
+		});	
 		/* - Booking Form Select Option Img */
 		$("#demo-htmlselect").ddslick({
 			onSelected: function(selectedData){

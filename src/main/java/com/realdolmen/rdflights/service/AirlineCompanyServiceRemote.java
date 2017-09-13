@@ -10,7 +10,7 @@ public interface AirlineCompanyServiceRemote {
 
 	List<Flight> getAllFlights(Long id);
 	void deleteFlight(long flightId);
-	Flight save(Flight f);
+	void save(Flight f, Long Id, Long depId, Long arrId);
 	void updateFlight(Flight f);
 	
 }
