@@ -25,7 +25,8 @@ public class FlightServiceBean implements FlightServiceRemote {
 
 	@Override
 	public Flight findFlightById(Long id) {
-		return flightRepo.findById(id);
+
+		return flightRepo.findFlightById(id);
 	}
 
 	@Override

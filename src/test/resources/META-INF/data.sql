@@ -1,13 +1,12 @@
-
 --------------------------------------------------------
 --  Inserting Customers
 --------------------------------------------------------
-INSERT INTO user(firstName, lastName, email, gender, password) values('Johnny', 'Doe', 'joendoe@email.com', 'M', 'test123');
-INSERT INTO user(firstName, lastName, email, gender, password) values('Jane', 'Doe','joendoe2@email.com', 'M', 'test123');
-INSERT INTO user(firstName, lastName, email, gender, password) values('Tyler', 'Turner', 'TylerTurner@email.com', 'M', 'test123');
-INSERT INTO user(firstName, lastName, email, gender, password) values('Marcia', 'Jackson', 'MarciaJackson@email.com', 'M', 'test123');
-INSERT INTO user(firstName, lastName, email, gender, password) values('Allan', 'Wilson', 'AllanWilson@email.com', 'M', 'test123');
-INSERT INTO user(firstName, lastName, email, gender, password) values('Test', 'test', 'test@test.com', 'M', 'test123');
+INSERT INTO user(firstName, lastName, email, gender, password, role) values('Johnny', 'Doe', 'joendoe@email.com', 'M', 'test123', 'CUSTOMER');
+INSERT INTO user(firstName, lastName, email, gender, password, role) values('Jane', 'Doe','joendoe2@email.com', 'M', 'test123','CUSTOMER');
+INSERT INTO user(firstName, lastName, email, gender, password, role) values('Tyler', 'Turner', 'TylerTurner@email.com', 'M', 'test123','CUSTOMER');
+INSERT INTO user(firstName, lastName, email, gender, password, role) values('Marcia', 'Jackson', 'MarciaJackson@email.com', 'M', 'test123','CUSTOMER');
+INSERT INTO user(firstName, lastName, email, gender, password, role) values('Allan', 'Wilson', 'AllanWilson@email.com', 'M', 'test123','CUSTOMER');
+INSERT INTO user(firstName, lastName, email, gender, password, role) values('Test', 'test', 'test@test.com', 'M', 'test123','CUSTOMER');
 COMMIT;
 
 --------------------------------------------------------
@@ -28,12 +27,12 @@ COMMIT;
 --------------------------------------------------------
 --  Inserting AirlineCompanies
 --------------------------------------------------------
-INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyCode, airlineCompanyName) values('Johnny', 'Doe', 'johnny@jetairfly.com', 'M', 'test123', 'JetairFly', 'JET');
-INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyCode, airlineCompanyName) values('Johnny', 'Doe', 'johnny@brusselsairline.com', 'M', 'test123', 'Brussels Airline', 'BrA');
-INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyCode, airlineCompanyName) values('Johnny', 'Doe', 'johnny@emirates.com', 'F', 'test123', 'Emirates Airlines', 'EMA');
-INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyCode, airlineCompanyName) values('Johnny', 'Doe', 'johnny@klm.com', 'M', 'test123', 'KLM', 'KLM');
-INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyCode, airlineCompanyName) values('Johnny', 'Doe', 'johnny@ryanair.com', 'M', 'test123', 'Ryanair', 'RYA')
-INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyCode, airlineCompanyName) values('Johnny', 'Doe', 'johnny@mahan.com', 'M', 'test123', 'Mahan Airline', 'MHA');;
+INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyName, airlineCompanyCode, role) values('Johnny', 'Doe', 'johnny@jetairfly.com', 'M', 'test123', 'JetairFly', 'JET','AIRLINECOMPANY');
+INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyName, airlineCompanyCode, role) values('Johnny', 'Doe', 'johnny@brusselsairline.com', 'M', 'test123', 'Brussels Airline', 'BrA','AIRLINECOMPANY');
+INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyName, airlineCompanyCode, role) values('Johnny', 'Doe', 'johnny@emirates.com', 'F', 'test123', 'Emirates Airlines', 'EMA','AIRLINECOMPANY');
+INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyName, airlineCompanyCode, role) values('Johnny', 'Doe', 'johnny@klm.com', 'M', 'test123', 'KLM', 'KLM','AIRLINECOMPANY');
+INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyName, airlineCompanyCode, role) values('Johnny', 'Doe', 'johnny@ryanair.com', 'M', 'test123', 'Ryanair', 'RYA','AIRLINECOMPANY')
+INSERT INTO user(firstName, lastName, email, gender, password, airlineCompanyName, airlineCompanyCode, role) values('Johnny', 'Doe', 'johnny@mahan.com', 'M', 'test123', 'Mahan Airline', 'MHA','AIRLINECOMPANY');
 commit;
 
 --------------------------------------------------------

@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import com.realdolmen.rdflights.domain.Address;
+import com.realdolmen.rdflights.domain.Role;
 import com.realdolmen.rdflights.domain.User;
 import com.realdolmen.rdflights.service.UserServiceBean;
 
@@ -32,6 +33,7 @@ public class UserBean {
 	}
 
 	public void save() throws Exception {
+		user.setRole(Role.CUSTOMER);
 		usb.save(user);
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		ec.redirect("login.jsf");

@@ -31,19 +31,16 @@ public class Ticket extends AbstractMaster implements Serializable {
 	
 	@ManyToOne
 	private Booking booking;
+	
+//	@ManyToOne
+//	private Booking booking;
+
 	@Embedded
 	private Travel travelInformation;
 	
-//	@Transient
-//	private int local_counter;
-	
-	
-
 	public Ticket() {
 		super();
 	}
-
-
 
 	public User getPassenger() {
 		return passenger;
@@ -54,8 +51,6 @@ public class Ticket extends AbstractMaster implements Serializable {
 	public void setPassenger(User passenger) {
 		this.passenger = passenger;
 	}
-
-
 
 	public BigDecimal getBuyPrice() {
 		return buyPrice;
@@ -83,54 +78,25 @@ public class Ticket extends AbstractMaster implements Serializable {
 		return travelInformation;
 	}
 
-
-
 	public void setTravelInformation(Travel travelInformation) {
 		this.travelInformation = travelInformation;
 	}
-
-
-
-//	public int getLocal_counter() {
-//		return local_counter;
-//	}
-//
-//
-//
-//	public void setLocal_counter(int local_counter) {
-//		this.local_counter = local_counter;
-//	}
-
-
 
 	public Flight getFlight() {
 		return flight;
 	}
 
-
-
 	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
-
-
 
 	public Booking getBooking() {
 		return booking;
 	}
 
-
-
 	public void setBooking(Booking booking) {
 		this.booking = booking;
 	}
-
-	
-	
-	
-	//--------------------------------------------------//
-	
-
 	
 	
 }

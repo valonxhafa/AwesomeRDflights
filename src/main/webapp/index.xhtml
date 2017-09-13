@@ -1,15 +1,249 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-        >
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="pageContent">
-			<h1>ATA - AwedomeTogethAir</h1>
-			
-        </ui:define>
-    </ui:composition>
+<ui:composition template="/template.xhtml">
+	<ui:define name="pageContent">
+		<!-- PhotoSlider2 -->
+		<div class="container-fluid no-padding photoslider2">
+			<!-- PhotoSlider2 Carousel-->
+			<div class="container-fluid no-padding photoslider2-carousel">
+				<!-- Booking Form -->
+				<div class="booking-form-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12 bookingform-details">
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active"><a
+										href="#booking_flight" aria-controls="booking_flight"
+										role="tab" data-toggle="tab"><img
+											src="resources/theme/img/photoslider2-ic1.png"
+											alt="photoslider2-ic1" width="24" height="23" />Flight</a></li>
+
+								</ul>
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active fade in"
+										id="booking_flight">
+										<form class="booking-form">
+											<div class="row">
+												<div
+													class="form-group col-md-12 no-padding booking_location select-options">
+													<label>Where do you want to go?</label>
+													<div class="select_options">
+														<select class="form-control">
+															<option>Australia</option>
+															<option>London</option>
+															<option>Las Vegas</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group col-md-12 no-padding">
+													<div class="row">
+														<div class="col-md-6 col-sm-6 col-xs-12">
+															<label>Check in date</label>
+															<div class="input-group datepicker" id="datepicker">
+																<input type='text' class="form-control" /> <span
+																	class="input-group-addon add-on"> <img
+																	src="resources/theme/img/clander.png" alt="clander"
+																	width="18" height="19" />
+																</span>
+															</div>
+														</div>
+														<div class="col-md-6 col-sm-6 col-xs-12">
+															<label>Check out date</label>
+															<div class="input-group datepicker" id="datepicker2">
+																<input type='text' class="form-control" /> <span
+																	class="input-group-addon add-on"> <img
+																	src="resources/theme/img/clander.png" alt="clander"
+																	width="18" height="19" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-group col-md-12 no-padding">
+													<a href="#" title="Book Now">Book Now</a>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div role="tabpanel" class="tab-pane fade" id="booking_train">
+										<form class="booking-form">
+											<div class="row">
+												<div
+													class="form-group col-md-12 no-padding booking_location select-options">
+													<label>Where do you want to go?</label>
+													<div class="select_options">
+														<select class="form-control">
+															<option>Australia</option>
+															<option>London</option>
+															<option>Las Vegas</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group col-md-12 no-padding">
+													<div class="row">
+														<div class="col-md-6 col-sm-6 col-xs-12">
+															<label>Check in date</label>
+															<div class="input-group datepicker" id="datepicke3">
+																<input type='text' class="form-control" /> <span
+																	class="input-group-addon add-on"> <img
+																	src="resources/theme/img/clander.png" alt="clander"
+																	width="18" height="19" />
+																</span>
+															</div>
+														</div>
+														<div class="col-md-6 col-sm-6 col-xs-12">
+															<label>Check out date</label>
+															<div class="input-group datepicker" id="datepicker4">
+																<input type='text' class="form-control" /> <span
+																	class="input-group-addon add-on"> <img
+																	src="resources/theme/img/clander.png" alt="clander"
+																	width="18" height="19" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-group col-md-12 no-padding">
+													<div class="row">
+														<div
+															class="col-md-3 col-sm-2 col-xs-4 booking_rooms select-options">
+															<label>Rooms</label> <select class="form-control">
+																<option>1</option>
+																<option>2</option>
+																<option>3</option>
+															</select>
+														</div>
+														<div
+															class="col-md-4 col-sm-5 col-xs-4 adults select-options">
+															<label>Adults</label> <select class="form-control">
+																<option>02 Adults</option>
+																<option>03 Adults</option>
+																<option>05 Adults</option>
+															</select>
+														</div>
+														<div class="col-md-5 col-sm-5 col-xs-4 select-options">
+															<label>Childs</label> <select class="form-control">
+																<option>01 Childs</option>
+																<option>02 Childs</option>
+																<option>03 Childs</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="form-group col-md-12 no-padding">
+													<a href="#" title="Book Now">Book Now</a>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div role="tabpanel" class="tab-pane fade" id="booking_bus">
+										<form class="booking-form">
+											<div class="row">
+												<div
+													class="form-group col-md-12 no-padding booking_location select-options">
+													<label>Where do you want to go?</label>
+													<div class="select_options">
+														<select class="form-control">
+															<option>Australia</option>
+															<option>London</option>
+															<option>Las Vegas</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group col-md-12 no-padding">
+													<div class="row">
+														<div class="col-md-6 col-sm-6 col-xs-12">
+															<label>Check in date</label>
+															<div class="input-group datepicker" id="datepicke5">
+																<input type='text' class="form-control" /> <span
+																	class="input-group-addon add-on"> <img
+																	src="resources/theme/img/clander.png" alt="clander"
+																	width="18" height="19" />
+																</span>
+															</div>
+														</div>
+														<div class="col-md-6 col-sm-6 col-xs-12">
+															<label>Check out date</label>
+															<div class="input-group datepicker" id="datepicker6">
+																<input type='text' class="form-control" /> <span
+																	class="input-group-addon add-on"> <img
+																	src="resources/theme/img/clander.png" alt="clander"
+																	width="18" height="19" />
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-group col-md-12 no-padding">
+													<div class="row">
+														<div
+															class="col-md-3 col-sm-2 col-xs-4 booking_rooms select-options">
+															<label>Rooms</label> <select class="form-control">
+																<option>1</option>
+																<option>2</option>
+																<option>3</option>
+															</select>
+														</div>
+														<div
+															class="col-md-4 col-sm-5 col-xs-4 adults select-options">
+															<label>Adults</label> <select class="form-control">
+																<option>02 Adults</option>
+																<option>03 Adults</option>
+																<option>05 Adults</option>
+															</select>
+														</div>
+														<div class="col-md-5 col-sm-5 col-xs-4 select-options">
+															<label>Childs</label> <select class="form-control">
+																<option>01 Childs</option>
+																<option>02 Childs</option>
+																<option>03 Childs</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="form-group col-md-12 no-padding">
+													<a href="#" title="Book Now">Book Now</a>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Booking Form /- -->
+				<div id="photoslider2-carousel" class="carousel slide carousel-fade"
+					data-ride="carousel">
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<img src="resources/theme/img/photoslider-1.jpg"
+								alt="photoslider-1" width="1920" height="840" />
+							<div class="container photoslider2-content">
+								<div class="row">
+									<div class="col-md-7 col-sm-12 col-xs-12 ">
+										<h3>A journey is best measured in friends, rather than
+											miles</h3>
+										<p>Can you tell me how to get how to get to Sesame Street!
+											Believe it or not I'm walking on air. I never thought I could
+											feel so free!</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- PhotoSlider2 Carousel /- -->
+		</div>
+		<!-- PhotoSlider2 /- -->
+
+	</ui:define>
+</ui:composition>
 
 </html>

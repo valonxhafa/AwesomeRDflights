@@ -14,7 +14,6 @@ import org.hibernate.validator.constraints.NotBlank;
 @Embeddable
 public class Travel{
 	
-	
 	private BigDecimal basePrice;
 	
 	private BigDecimal marginPrice;
@@ -31,7 +30,10 @@ public class Travel{
 	public Travel() {
 		super();
 	}
-
+	public Travel(BigDecimal bp) {
+		super();
+		this.basePrice = bp;
+	}
 	//--------------------------------------------------//
 	
 	public BigDecimal getBasePrice() {

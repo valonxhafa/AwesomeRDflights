@@ -1,0 +1,388 @@
+a:hover {
+	text-decoration: none;
+}
+
+.ata-btn-container-navi {
+	display: block;
+	height: 62px;
+}
+
+.ata-partner-container td a {
+	display: block
+}
+
+.ata-btn, .ata-simple-btn {
+	position: relative;
+}
+
+.ata-btn>span.icon, .ata-simple-btn>span.icon {
+	position: absolute;
+	left: -20px;
+	top: 3px
+}
+
+.ata-btn>span.icon {
+	left: 12px;
+	top: 12px;
+}
+
+.ata-simple-btn {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.ata-btn {
+	border: 2px solid #3abefb;
+	padding: 10px 20px 10px 35px;
+	color: #fff;
+	background: #3abefb;
+	transition: all .3s ease;
+	border-radius: 30px;
+}
+
+.ata-btn:hover {
+	background: transparent;
+	color: #3abefb;
+	transition: all .3s ease;
+}
+
+.ata-btn.ata-btn-inverse {
+	background: transparent;
+	transition: all .3s ease;
+}
+
+.ata-btn.ata-btn-inverse:hover {
+	background: #3abefb;
+	color: #fff;
+	transition: all .3s ease;
+}
+
+.v-align-items {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+}
+
+.v-align-items-start {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: flex-start;
+	-webkit-justify-content: flex-start;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+}
+
+.v-align-items-space-around {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: space-around;
+	-webkit-justify-content: space-around;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+}
+
+.v-align-items-column-center {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: center;
+	-webkit-justify-content: center;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+}
+
+.ata-form-container {
+	border: 6px solid #f5f5f5;
+	display: inline-block;
+	padding: 30px;
+	border-radius: 30px;
+	background: rgba(255, 255, 255, .1);
+}
+
+select, input {
+	display: block;
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #fff;
+	background-color: transparent;
+	background-image: none;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	margin-bottom: 25px;
+	transition: all .3s ease;
+	box-shadow: none;
+}
+
+.mb25 {
+	margin-bottom: 25px;
+}
+
+input:focus {
+	border: 2px solid #fff;
+	background: #fff;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, .8);
+	color: #555;
+}
+
+.pagebanner.ata-login {
+	height: 75vh;
+	background: url("../resources/theme/img/loginbanner.jpg");
+}
+
+.pagebanner.ata-signup {
+	background: url("../resources/theme/img/registerbanner.jpg");
+}
+
+.signup-container {
+	min-width: 320px;
+	width: 50%;
+	margin-top: 50px;
+	display: block;
+	border-color: #3abefb
+}
+
+.signup-container input {
+	color: #555;
+}
+
+.signup-container input.btn {
+	color: #fff
+}
+
+.pagebanner:before {
+	background-color: rgba(0, 0, 0, .4);
+}
+
+.pagebanner.ata-login h3 {
+	margin-bottom: 25px;
+}
+
+.signup-container label {
+	color: #555;
+	margin-bottom: 25px;
+}
+
+.ata-overlay-content h3, .signup-container h3 {
+	color: #555;
+	font-size: 30px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 2px;
+	font-family: 'Poppins', sans-serif;
+	z-index: 2;
+	word-wrap: break-word;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+.ata-form-group {
+	position: relative
+}
+
+.ata-control-label.ata-has-error {
+	position: absolute;
+	top: -20px;
+	left: 0;
+	color: #fb3a5d
+}
+
+.ata-partner-container {
+	margin-top: 25px;
+	border: 6px solid #3abefb;
+	display: inline-block;
+	padding: 5px;
+	width: 100%;
+	border-radius: 30px;
+}
+
+.ata-partner-container a.ata-btn {
+	max-width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ata-btn-xs {
+	padding: 5px 10px;
+	text-align: left;
+}
+
+.ata-btn-xs>span.icon {
+	left: inherit;
+	right: 12px;
+	top: 8px;
+}
+
+.ata-btn-danger {
+	background-color: #fb3a5d;
+	border-color: #fb3a5d;
+}
+
+.ata-btn-danger:hover {
+	color: #fb3a5d;
+}
+
+.ata-btn-success {
+	background-color: #449d44;
+	border-color: #449d44;
+}
+
+.ata-add-items-partner .ata-btn-success {
+	margin-left: 25px;
+}
+
+.ata-add-items-partner {
+	margin-top: 50px;
+	float: right;
+}
+
+.ata-btn-success>span {
+	position: absolute;
+	left: 12px;
+	top: 12px;
+}
+
+.ata-btn-success:hover {
+	color: #449d44;
+}
+
+.ata-btn>span {
+	transform: scale(1);
+	transition: transform .4s ease;
+}
+
+.ata-btn:hover>span {
+	transform: scale(1.2);
+	transition: transform .4s ease;
+}
+
+.ata-overlay-container {
+	z-index: -1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: rgba(255, 255, 255, .9);
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.1s, opacity 0.1s;
+	transition: transform 0.1s, opacity 0.1s;
+	transition-timing-function: ease, ease;
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transform: scale3d(0.6, 0.6, 1);
+	
+}
+
+.ata-overlay-container.shown {
+	z-index: 1000;
+	opacity: 1;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	transition-timing-function: ease, ease;
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-webkit-transform: scale3d(1, 1, 1);
+	transform: scale3d(1, 1, 1);
+}
+
+.ata-overlay-content {
+	max-width: 400px;
+	width: 100%;
+	height: auto;
+	border: 6px solid #3abefb;
+	padding: 25px;
+	border-radius: 30px;
+	background: #fff;
+}
+
+.ata-overlay-content select, .ata-overlay-content input {
+	color: #555;
+}
+
+.ata-close-overlay {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	transform: scale(1);
+	transition: all .3s ease;
+}
+
+.ata-close-overlay.icon.icon-Close::before {
+	font-size: 6em !important;
+	font-weight: 800;
+	color: #3ABEFB;
+	opacity: .75;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.ata-close-overlay.icon.icon-Close:hover::before {
+	opacity: 1;
+	transition: all .3s ease;
+}
+
+.ata-close-overlay:hover {
+	transform: scale(1.15);
+	transition: all .3s ease;
+}
+
+.booking-form .input-group-addon.add-on>img {
+	right: 8px;
+	top: 8px;
+}
+
+.booking-form label {
+	margin-bottom: 0;
+	text-transform: none;
+}
+
+.booking-form .datepicker-partner-flight .input-group-addon {
+	display: block;
+	position: absolute;
+	right: 0;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	z-index:5;
+
+}
+.booking-form .form-control{
+	min-height:35px;
+	border-radius: 4px !important;
+	margin-bottom:25px;
+}
+.ata-form-group.v-align-items > div{
+	width: 48%
+}
+ul{
+	padding-left:0
+}
+input.ata-btn{
+	color:#fff;
+	min-width:150px;
+	margin-left:auto;
+	margin-right:auto;
+	width:auto;
+	text-align:center;
+	font-size:1.1em;
+}

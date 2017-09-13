@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="/template.xhtml">
+	<ui:define name="pageContent">
+		<!-- PageBanner -->
+		<div class="container-fluid no-padding pagebanner ata-signup">
+			<div class="container">
+				<h3>Register your flight below</h3>
+			</div>
+		</div>
+		<!-- PageBanner /- -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 v-align-items-column-center">
+					<div class="ata-form-container signup-container">
+						<div>
+							<h3>Your flight</h3>
+						</div>
+						<h:form styleClass="ata-registerForm">
+							<div class="ata-form-group">
+								<h:inputText id="flightnumber" value="#{airlineCompanyBean.flight.flightNumber}"
+									a:placeholder="Flightnumber" />
+								<h:message for="flightnumber"
+									errorClass="ata-control-label ata-has-error" />
+							</div>
+							<div class="ata-form-group">
+								<h:inputText id="airportDep" value="#{airlineCompanyBean.flight.airportDeparture}"
+									a:placeholder="The Departure Airtport" />
+								<h:message for="lastName"
+									errorClass="ata-control-label ata-has-error" />
+							</div>
+							<div class="ata-form-group">
+								<h:outputLabel for="ata-gendere">Gender</h:outputLabel>
+								<h:selectOneMenu id="ata-gender" value="#{userBean.user.gender}">
+									<f:selectItem itemValue="M" itemLabel="M" />
+									<f:selectItem itemValue="F" itemLabel="F" />
+									<f:selectItem itemValue="X" itemLabel="X" />
+								</h:selectOneMenu>
+								<h:message for="ata-gender"
+									errorClass="ata-control-label ata-has-error" />
+							</div>
+							<div class="ata-form-group">
+								<h:inputText id="birthDate" value="#{userBean.user.birthDate}"
+									a:placeholder="Birthdate (YYYY-MM-DD)">
+									<f:convertDateTime pattern="yyyy-MM-dd" />
+								</h:inputText>
+								<h:message for="birthDate"
+									errorClass="ata-control-label ata-has-error" />
+							</div>
+							<div class="ata-form-group">
+								<h:inputText id="email" value="#{userBean.user.email}"
+									a:placeholder="Email" />
+								<h:message for="email"
+									errorClass="ata-control-label ata-has-error" />
+							</div>
+							<div class="ata-form-group">
+								<h:inputSecret id="password" value="#{userBean.user.password}"
+									a:placeholder="Password"  styleClass="ata-pass"/>
+								<h:message for="password"
+									errorClass="ata-control-label ata-has-error" />
+							</div>
+							<div class="ata-form-group">
+								<h:inputSecret id="repeatPassword" a:placeholder="Repeat Password" styleClass="ata-repeatpass"/>
+								<!-- <h:message for="birthDate" errorClass="control-label has-error"/> -->
+							</div>
+
+							<h:commandButton value="Save" action="#{userBean.save()}"
+								styleClass="btn btn-primary ata-signup-class" id="saveBtn"/>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

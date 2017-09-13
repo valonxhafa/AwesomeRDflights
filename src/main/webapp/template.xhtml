@@ -6,45 +6,180 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>ATA - AwesomeToghethAir</title>
 	<h:outputStylesheet library="bootstrap-3.3.6"
 		name="/css/bootstrap-jsf.css" />
-	<h:outputStylesheet library="main" name="/css/main.css" />
+	<link
+		href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,300|Poppins:400,500,600,700|Tangerine:700)" />
+	<h:outputStylesheet library="theme" name="libraries/lib.css" />
+	<h:outputStylesheet library="theme"
+		name="libraries/bootstrap-datetimepicker.min.css" />
+	<h:outputStylesheet library="theme"
+		name="libraries/fonts/stroke-gap-icon.css" />
+
+
+	<h:outputStylesheet library="theme" name="css/lightslider.css" />
+	<h:outputStylesheet library="theme" name="css/plugins.css" />
+	<h:outputStylesheet library="theme" name="css/navigation-menu.css" />
+	<h:outputStylesheet library="theme" name="css/shortcode.css" />
+	<h:outputStylesheet library="theme" name="style.css" />
+	<h:outputStylesheet library="css" name="main.css" />
 
 </h:head>
-<h:body>
-	<div class="ata-body">
-		<header class="ata-header">
-			<!--Header navigation + logo  -->
-			<c:if test="#{empty loginBean.loggedinUser}">
-				<h:link value="Login" outcome="login" styleClass="btn btn-succes" />
-				<h:link value="Register here" outcome="register-user"
-					styleClass="btn btn-default" />
-			</c:if>
-			<c:if test="#{not empty loginBean.loggedinUser}">
-				<h:form>
-					<p>Welcome #{loginBean.loggedinUser}</p>
-					<h:commandLink action="#{loginBean.logout}" value="Logout"></h:commandLink>
-				</h:form>
-			</c:if>
-
-
-
-		</header>
-		<div class="ata-container">
-			<!--The page content  -->
-			<ui:insert name="pageContent">
-				<h1>Page content</h1>
-				<p>This content should be replaced by the client page.</p>
-			</ui:insert>
-		</div>
-		<div class="ata-mobile-menu">
-			<!--Mobile Menu  -->
+<body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
+	<!-- LOADER -->
+	<div id="site-loader" class="load-complete">
+		<div class="loader">
+			<div class="loader-inner ball-triangle-path">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
 		</div>
 	</div>
+	<!-- Loader /- -->
+	<header class="header-main container-fluid no-padding">
+		<!-- SidePanel -->
+		<div id="slidepanel">
+			<!-- Middle Header /- -->
+			<div class="container header-middle">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="logo-block">
+							<h:link value="" outcome="index">
+								<img src="resources/theme/img/logo.png" alt="logo" height="52"
+									width="70" />
+								<h3 class="center" style="display: block; text-align: center">ATA</h3>
+								<span style="display: block; text-align: center">Awesome
+									TogethAir</span>
+							</h:link>
+						</div>
+					</div>
+					<div class="col-md-9 col-sm-12 col-xs-12">
+						<div class="header-contactinfo-block">
+
+							<div class="contactinfo-box">
+								<span class="icon icon-Pointer"></span>
+								<p>
+									ATA, Huizingen,<span>Belgium</span>
+								</p>
+							</div>
+							<div class="contactinfo-box">
+								<span class="icon icon-Time"></span>
+								<p>
+									Monday-Friday : 9:00 AM to 6:00 PM<span>Sunday : Closed</span>
+								</p>
+							</div>
+							<div class="contactinfo-box">
+								<span class="icon icon-Phone2"></span>
+								<p>
+									<a href="tel:+16 33 34 35" title="+3216333435">+16 33 34 35</a>
+									<a href="mailto:info@ata.com" title="info@global.com">info@ata.com</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Middle Header /- -->
+		</div>
+		<!-- SidePanel /- -->
+		<div class="menu-block">
+			<div class="container">
+				<div class="row">
+					<!-- Navigation -->
+					<nav class="navbar ow-navigation">
+						<div id="loginpanel" class="desktop-hide">
+							<div class="right" id="toggle">
+								<a id="slideit" href="#slidepanel"><i
+									class="fo-icons fa fa-inbox"></i></a> <a id="closeit"
+									href="#slidepanel"><i class="fo-icons fa fa-close"></i></a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<div class="navbar-header">
+									<button aria-controls="navbar" aria-expanded="false"
+										data-target="#navbar" data-toggle="collapse"
+										class="navbar-toggle collapsed" type="button">
+										<span class="sr-only">Toggle navigation</span> <span
+											class="icon-bar"></span> <span class="icon-bar"></span> <span
+											class="icon-bar"></span>
+									</button>
+
+								</div>
+								<div class="navbar-collapse collapse" id="navbar">
+									<ul class="nav navbar-nav">
+										<li><a title="Contact" href="contactus.html">Destinations</a></li>
+										<li><a title="About Us" href="aboutus.html">About Us</a></li>
+										<li><a title="Contact" href="contactus.html">Contact
+												Us</a></li>
+									</ul>
+									<div class="hidden-md hidden-lg">
+										<c:if test="#{empty loginBean.loggedinUser}">
+											<h:link value="Login here" outcome="login"
+												styleClass="ata-simple-btn">
+												<span class="icon icon-User"></span>
+											</h:link>
+											<h:link value="Register here" outcome="register-user"
+												styleClass="ata-btn">
+												<span class="icon icon-Users"></span>
+											</h:link>
+										</c:if>
+										<c:if test="#{not empty loginBean.loggedinUser}">
+											<h:form>
+												<h3>Welcome #{loginBean.loggedinUser}</h3>
+												<h:commandLink action="#{loginBean.logout}" value="Logout" styleClass="ata-simple-btn"></h:commandLink>
+											</h:form>
+										</c:if>
+									</div>
+								</div>
+							</div>
+							<div
+								class="hidden-xs hidden-sm col-md-4 v-align-items-space-around ata-btn-container-navi">
+								<c:if test="#{empty loginBean.loggedinUser}">
+
+									<h:link value="Login here" outcome="login"
+										styleClass="ata-simple-btn">
+										<span class="icon icon-User"></span>
+									</h:link>
+									<h:link value="Register here" outcome="register-user"
+										styleClass="ata-btn">
+										<span class="icon icon-Users"></span>
+									</h:link>
+								</c:if>
+								<c:if test="#{not empty loginBean.loggedinUser}">
+									<h:form>
+										<p>Welcome #{loginBean.loggedinUser}</p>
+										<h:commandLink action="#{loginBean.logout}" value="Logout"></h:commandLink>
+									</h:form>
+								</c:if>
+							</div>
+						</div>
+					</nav>
+					<!-- Navigation /- -->
+				</div>
+			</div>
+		</div>
+	</header>
+	<main class="site-main page-spacing"> <!--The page content  -->
+	<ui:insert name="pageContent">
+		<h1>Page content</h1>
+		<p>This content should be replaced by the client page.</p>
+	</ui:insert> </main>
 
 	<!-- <h:outputScript library="jquery-2.2.1" name="jquery.js" /> -->
+	<h:outputScript library="theme" name="jquery.min.js" />
 	<h:outputScript library="bootstrap-3.3.6" name="/js/bootstrap.js" />
-	<h:outputScript library="main" name="/js/script.js" />
-</h:body>
+	<h:outputScript library="js" name="script.js" />
+	<h:outputScript library="theme" name="jquery.ddslick.min.js" />
+	<h:outputScript library="theme" name="libraries/lib.js" />
+	<h:outputScript library="theme"
+		name="libraries/bootstrap-datetimepicker.min.js" />
+	<h:outputScript library="theme"
+		name="libraries/lightslider-master/lightslider.js" />
+	<h:outputScript library="theme" name="functions.js" />
+
+</body>
 </html>
