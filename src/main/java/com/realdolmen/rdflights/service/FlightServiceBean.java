@@ -25,8 +25,7 @@ public class FlightServiceBean implements FlightServiceRemote {
 
 	@Override
 	public Flight findFlightById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return flightRepo.findById(id);
 	}
 
 	@Override

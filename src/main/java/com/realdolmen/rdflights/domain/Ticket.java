@@ -22,7 +22,7 @@ public class Ticket extends AbstractMaster implements Serializable {
 	@OneToOne(cascade =CascadeType.ALL)
 	private User passenger;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	private Flight flight;
 	
 	private BigDecimal buyPrice;

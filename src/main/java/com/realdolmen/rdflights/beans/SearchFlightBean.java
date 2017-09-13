@@ -39,6 +39,7 @@ public class SearchFlightBean {
 	private int passengersquantity;
 	private Long booking_id;
 	private Booking booking;
+	private Long flightid;
 	
 	
     @Inject
@@ -70,7 +71,8 @@ public class SearchFlightBean {
         return "flightresults";
     }
     
-	public String saveTickets() {
+	public String saveTickets(Long id) {
+		flightid = id;
 		FillEmptyTicketList();
 		passengersquantity = 0;
 		
@@ -84,7 +86,7 @@ public class SearchFlightBean {
     	for (int i = 0; i < passengersquantity; i++) {
         	Ticket ticket = new Ticket();
         	User passenger = new User();
-        	Flight flight = new Flight();
+        	Flight flight = flightService.findFlightById(flightid);
         	//flight.setAirportDeparture(airportDeparture);
         	ticket.setFlight(flight);
         	ticket.setPassenger(passenger);
@@ -238,6 +240,18 @@ public class SearchFlightBean {
 	public void setBooking(Booking booking) {
 		this.booking = booking;
 	}
+
+
+	public Long getFlightid() {
+		return flightid;
+	}
+
+
+	public void setFlightid(Long flightid) {
+		this.flightid = flightid;
+	}
+	
+	
 
 	
 }

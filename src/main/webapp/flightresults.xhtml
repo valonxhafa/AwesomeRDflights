@@ -46,7 +46,7 @@
                 </h:column>
                 
                 <h:column>
-                	<h:commandButton id="saveticket_#{flight.id}" value="Book now!" styleClass="btn" action="#{searchFlightBean.saveTickets()}"/>
+                	<h:commandButton id="saveticket_#{flight.id}" value="Book now!" styleClass="btn" action="#{searchFlightBean.saveTickets(flight.id)}"/>
                 
                 </h:column>
                 
