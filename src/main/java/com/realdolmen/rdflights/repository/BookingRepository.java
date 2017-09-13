@@ -19,18 +19,11 @@ public class BookingRepository {
 	
 	 private Logger logger = LoggerFactory.getLogger(getClass());
 	 
-	    @PersistenceContext(unitName="rdflightsPU")
-	    EntityManager em;
-	 
-	    public void create(Booking booking) {
-	        booking.setCustomer(em.find(User.class, booking.getCustomer().getId()));
-	        // niet volledig
-
-	        for (Ticket ticket : booking.getTickets()) {
-	            em.persist(ticket);
-	        }
-
-	        em.persist(booking);
-	    }
+    @PersistenceContext(unitName="rdflightsPU")
+    EntityManager em;
+ 
+	 public void saveBooking(Booking b){
+		 em.persist(b);
+	 }
 
 }

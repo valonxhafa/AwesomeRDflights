@@ -15,6 +15,7 @@
 		<class>com.realdolmen.rdflights.domain.Ticket</class>
 		<class>com.realdolmen.rdflights.domain.Travel</class>
 		<class>com.realdolmen.rdflights.domain.EmployeeOverride</class>
+		<class>com.realdolmen.rdflights.domain.Booking</class>
 
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action"

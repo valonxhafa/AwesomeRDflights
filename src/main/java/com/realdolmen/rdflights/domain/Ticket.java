@@ -1,7 +1,9 @@
 package com.realdolmen.rdflights.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -10,21 +12,31 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Ticket extends AbstractMaster {
+public class Ticket extends AbstractMaster implements Serializable {
 	
-	@OneToOne
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@OneToOne(cascade =CascadeType.ALL)
 	private User passenger;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Flight flight;
 	
 	private BigDecimal buyPrice;
 	
 	private BigDecimal soldPrice;
-	//@ManyToOne
-	//private Booking booking; VERGEET GETTER AND SETTER NIET TOE TE VOEGEN 
+	
+	@ManyToOne
+	private Booking booking;
 	@Embedded
 	private Travel travelInformation;
-	@Transient
-	private int local_counter;
-
+	
+//	@Transient
+//	private int local_counter;
+	
 	
 
 	public Ticket() {
@@ -79,15 +91,41 @@ public class Ticket extends AbstractMaster {
 
 
 
-	public int getLocal_counter() {
-		return local_counter;
+//	public int getLocal_counter() {
+//		return local_counter;
+//	}
+//
+//
+//
+//	public void setLocal_counter(int local_counter) {
+//		this.local_counter = local_counter;
+//	}
+
+
+
+	public Flight getFlight() {
+		return flight;
 	}
 
 
 
-	public void setLocal_counter(int local_counter) {
-		this.local_counter = local_counter;
+	public void setFlight(Flight flight) {
+		this.flight = flight;
 	}
+
+
+
+	public Booking getBooking() {
+		return booking;
+	}
+
+
+
+	public void setBooking(Booking booking) {
+		this.booking = booking;
+	}
+
+	
 	
 	
 	//--------------------------------------------------//

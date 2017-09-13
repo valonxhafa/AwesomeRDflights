@@ -1,8 +1,11 @@
 package com.realdolmen.rdflights.domain;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -25,8 +28,11 @@ public class Flight extends AbstractMaster {
 	@ManyToOne
 	private User airlineCompany;
 	
-	@NotNull
+	//@NotNull
 	private String flightNumber;
+	
+	@OneToMany
+	private List<Ticket> tickets;
 	
 	//private Travel travelReport;
 	
@@ -89,6 +95,14 @@ public class Flight extends AbstractMaster {
 
 	public void setFlightNumber(String flightNumber) {
 		this.flightNumber = flightNumber;
+	}
+
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
 	}
 	
 	

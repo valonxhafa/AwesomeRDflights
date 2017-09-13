@@ -7,5 +7,5 @@ import com.realdolmen.rdflights.domain.User;
 @Remote
 public interface TicketServiceRemote {
 	
-	Ticket saveTicket (Ticket ticket, User passenger);
+	Ticket saveTicket (Ticket ticket);
 }

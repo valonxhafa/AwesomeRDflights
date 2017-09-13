@@ -17,19 +17,19 @@ public class User extends AbstractMaster implements Serializable {
 	
 	@NotBlank
 	private String firstName;
-	@NotBlank
+//	@NotBlank
     private String lastName;
     
     @Embedded
     private Address address;
 
-    @NotBlank
+//    @NotBlank
     private String gender;
     @Enumerated(EnumType.STRING)
     private Role role;
     
     @Column(unique = true)
-    @NotBlank
+//    @NotBlank
     private String email;
     private String password;
     private String tel;

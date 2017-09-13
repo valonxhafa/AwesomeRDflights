@@ -16,8 +16,8 @@ public class TicketServiceBean implements TicketServiceRemote {
     TicketRepository ticketrepo;
 	
 	@Override
-	public Ticket saveTicket(Ticket ticket, User passenger) {
-		return ticketrepo.saveTicket(ticket, passenger);
+	public Ticket saveTicket(Ticket ticket) {
+		return ticketrepo.saveTicket(ticket);
 	}
 
 }

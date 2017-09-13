@@ -19,11 +19,11 @@ import com.realdolmen.rdflights.payment.Payment;
 @Entity
 public class Booking extends AbstractMaster{
 	
-	@NotNull
-	private BigDecimal bulkDiscount;
+//	@NotNull
+//	private BigDecimal bulkDiscount;
 	
-	@OneToOne
-	private Payment payment;
+//	@OneToOne
+//	private Payment payment;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date bookingDateTime;
@@ -31,34 +31,34 @@ public class Booking extends AbstractMaster{
     @OneToMany
     private List<Ticket> tickets = new ArrayList<>();
 	
-    @ManyToOne
-    @NotNull
-    private User customer;
+//    @ManyToOne
+//    @NotNull
+//    private User customer;
 	
 	
 	public Booking() {
 		super();
 	}
 
-
-	public BigDecimal getBulkDiscount() {
-		return bulkDiscount;
-	}
-
-
-	public void setBulkDiscount(BigDecimal bulkDiscount) {
-		this.bulkDiscount = bulkDiscount;
-	}
-
-
-	public Payment getPayment() {
-		return payment;
-	}
-
-
-	public void setPayment(Payment payment) {
-		this.payment = payment;
-	}
+//
+//	public BigDecimal getBulkDiscount() {
+//		return bulkDiscount;
+//	}
+//
+//
+//	public void setBulkDiscount(BigDecimal bulkDiscount) {
+//		this.bulkDiscount = bulkDiscount;
+//	}
+//
+//
+//	public Payment getPayment() {
+//		return payment;
+//	}
+//
+//
+//	public void setPayment(Payment payment) {
+//		this.payment = payment;
+//	}
 
 
 	public Date getBookingDateTime() {
@@ -81,14 +81,14 @@ public class Booking extends AbstractMaster{
 	}
 
 
-	public User getCustomer() {
-		return customer;
-	}
-
-
-	public void setCustomer(User customer) {
-		this.customer = customer;
-	}
+//	public User getCustomer() {
+//		return customer;
+//	}
+//
+//
+//	public void setCustomer(User customer) {
+//		this.customer = customer;
+//	}
 	
 	
 	

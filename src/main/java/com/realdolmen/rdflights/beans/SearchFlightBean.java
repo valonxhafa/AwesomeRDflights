@@ -9,11 +9,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import com.realdolmen.rdflights.domain.Airport;
+import com.realdolmen.rdflights.domain.Booking;
 import com.realdolmen.rdflights.domain.Flight;
 import com.realdolmen.rdflights.domain.Ticket;
 import com.realdolmen.rdflights.domain.User;
 import com.realdolmen.rdflights.service.AirportServiceBean;
+import com.realdolmen.rdflights.service.BookingServiceBean;
 import com.realdolmen.rdflights.service.FlightServiceBean;
+import com.realdolmen.rdflights.service.TicketServiceBean;
 
 @ManagedBean
 @SessionScoped
@@ -22,6 +25,8 @@ public class SearchFlightBean {
 	private Long airportDeparture;
 	private Long airportArrival;
 	private Date departureTime;
+	
+	
 	private Date arrivalTime;
 	private Date returnDate;
 	private String tempDepTime;
@@ -29,22 +34,27 @@ public class SearchFlightBean {
 	private String flightNumber;
 	private List<Airport> airports;
 	private List<Flight> flights;
+	private List<Ticket> tickets = new ArrayList<>();
 	private Date currentDate;
 	private int passengersquantity;
-	private List<Ticket> tickets = new ArrayList<>();
+	private Long booking_id;
+	private Booking booking;
+	
+	
     @Inject
     private FlightServiceBean flightService;
     @Inject
     private AirportServiceBean airportService;
-    
+    @Inject
+    private TicketServiceBean ticketService;
+    @Inject
+    private BookingServiceBean bsb;
     @PostConstruct
     public void postConstruct(){
        airports =  airportService.findAllAirports(); //fill list to use on search departure/destination 
        currentDate = Calendar.getInstance().getTime();
-       
     }
 
-  //-----------------------METHODS---------------------------------------//
     
     public String findAirportById(Long id){
         return airportService.findAirportById(id).getAirportName();
@@ -63,16 +73,22 @@ public class SearchFlightBean {
 	public String saveTickets() {
 		FillEmptyTicketList();
 		passengersquantity = 0;
+		
         return "ticketforms";
     }
     
 
     public void FillEmptyTicketList(){
+    	booking = new Booking();
+    	bsb.saveBooking(booking);
     	for (int i = 0; i < passengersquantity; i++) {
         	Ticket ticket = new Ticket();
-        	ticket.setLocal_counter(i + 1);
+        	User passenger = new User();
+        	Flight flight = new Flight();
+        	//flight.setAirportDeparture(airportDeparture);
+        	ticket.setFlight(flight);
+        	ticket.setPassenger(passenger);
         	tickets.add(ticket);
-
 		}
 
     }
@@ -202,8 +218,26 @@ public class SearchFlightBean {
 	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
 	}
-	
-	
-    
+
+
+	public Long getBooking_id() {
+		return booking_id;
+	}
+
+
+	public void setBooking_id(Long booking_id) {
+		this.booking_id = booking_id;
+	}
+
+
+	public Booking getBooking() {
+		return booking;
+	}
+
+
+	public void setBooking(Booking booking) {
+		this.booking = booking;
+	}
+
 	
 }

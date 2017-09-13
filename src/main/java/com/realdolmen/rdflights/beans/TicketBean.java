@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.realdolmen.rdflights.domain.Booking;
 import com.realdolmen.rdflights.domain.Ticket;
 import com.realdolmen.rdflights.domain.User;
 import com.realdolmen.rdflights.service.FlightServiceBean;
@@ -21,9 +22,13 @@ public class TicketBean {
 	private User passenger;
 	private Ticket ticket;
 	
+	
     @Inject
     private TicketServiceBean ticketService;
-
+    
+    @ManagedProperty(value = "#{searchFlightBean.booking}")
+    private Booking booking;
+    
 	@ManagedProperty(value = "#{searchFlightBean.tickets}")
 	private List<Ticket> tickets ;
 	
@@ -31,7 +36,12 @@ public class TicketBean {
 	private int passengersquantity = 0;
 	
 	public void saveTicket(){
-		ticketService.saveTicket(ticket, passenger);
+		for (Ticket t : tickets) {
+			t.setBooking(booking);
+			ticketService.saveTicket(t);
+			System.out.println(t.getPassenger().getFirstName() + " " + t.getBooking().getId());
+		}
+		
 	}
 	
     @PostConstruct
@@ -71,5 +81,15 @@ public class TicketBean {
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
 	}
+
+	public Booking getBooking() {
+		return booking;
+	}
+
+	public void setBooking(Booking booking) {
+		this.booking = booking;
+	}
+	
+	
     
 }
