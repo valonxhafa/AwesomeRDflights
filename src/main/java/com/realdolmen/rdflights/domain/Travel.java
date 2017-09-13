@@ -14,14 +14,14 @@ import org.hibernate.validator.constraints.NotBlank;
 @Embeddable
 public class Travel{
 	
-	@NotNull
+
 	private BigDecimal basePrice;
-	@NotNull
+	
 	private BigDecimal marginPrice;
 	private BigDecimal finalPrice;
 	@OneToOne
 	private EmployeeOverride employeeOverride;
-	@NotBlank
+	
 	@Size(max = 150)
 	private String seatClass;
 

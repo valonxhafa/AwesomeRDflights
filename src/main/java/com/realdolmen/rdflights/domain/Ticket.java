@@ -14,12 +14,12 @@ public class Ticket extends AbstractMaster {
 	@OneToOne
 	private User passenger;
 	
-	@NotNull
+
 	private BigDecimal buyPrice;
-	@NotNull
+
 	private BigDecimal soldPrice;
-	@ManyToOne
-	private Booking booking;
+//	@ManyToOne
+//	private Booking booking;
 	@Embedded
 	private Travel travelInformation;
 
@@ -66,16 +66,16 @@ public class Ticket extends AbstractMaster {
 	}
 
 
-
-	public Booking getBooking() {
-		return booking;
-	}
-
-
-
-	public void setBooking(Booking booking) {
-		this.booking = booking;
-	}
+//
+//	public Booking getBooking() {
+//		return booking;
+//	}
+//
+//
+//
+//	public void setBooking(Booking booking) {
+//		this.booking = booking;
+//	}
 
 
 

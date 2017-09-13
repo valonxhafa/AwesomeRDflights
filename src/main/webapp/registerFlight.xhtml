@@ -10,7 +10,7 @@
 		<!-- PageBanner -->
 		<div class="container-fluid no-padding pagebanner ata-signup">
 			<div class="container">
-				<h3>Fill in your information below</h3>
+				<h3>Register your flight below</h3>
 			</div>
 		</div>
 		<!-- PageBanner /- -->
@@ -19,18 +19,18 @@
 				<div class="col-xs-12 v-align-items-column-center">
 					<div class="ata-form-container signup-container">
 						<div>
-							<h3>Sign up</h3>
+							<h3>Your flight</h3>
 						</div>
 						<h:form styleClass="ata-registerForm">
 							<div class="ata-form-group">
-								<h:inputText id="firstName" value="#{userBean.user.firstName}"
-									a:placeholder="First Name" />
-								<h:message for="firstName"
+								<h:inputText id="flightnumber" value="#{airlineCompanyBean.flight.flightNumber}"
+									a:placeholder="Flightnumber" />
+								<h:message for="flightnumber"
 									errorClass="ata-control-label ata-has-error" />
 							</div>
 							<div class="ata-form-group">
-								<h:inputText id="lastName" value="#{userBean.user.lastName}"
-									a:placeholder="Last Name" />
+								<h:inputText id="airportDep" value="#{airlineCompanyBean.flight.airportDeparture}"
+									a:placeholder="The Departure Airtport" />
 								<h:message for="lastName"
 									errorClass="ata-control-label ata-has-error" />
 							</div>

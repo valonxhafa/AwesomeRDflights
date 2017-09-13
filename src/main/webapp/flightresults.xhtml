@@ -10,57 +10,60 @@
     <ui:composition template="template.xhtml">
         <ui:define name="pageContent">
             <h1>Outbound to </h1> <h:outputText />
- 			<h:form>
-		        <h:dataTable id="flightstable" value="#{searchFlightBean.flights}" var="flight" styleClass="table table-striped">
-		       
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Airline company"/>
-                    </f:facet>
-                    <h:outputText value="#{flight.airlineCompany.airlineCompanyName}"/>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Departures"/>
-                    </f:facet>
-                    <h:outputText value="#{flight.airportDeparture.airportName}"/>
-                    <br />
-                    <h:outputText value="#{flight.departureTime}"/>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Arrival"/>
-                    </f:facet>
-                    <h:outputText value="#{flight.airportArrival.airportName}"/>
-                    <br />
-                    <h:outputText value="#{flight.arrivalTime}"/>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">!
-                        <h:outputText value="Price"/>
-                    </f:facet>
-                    <h:outputText value=""/>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="# Passengers"/>
-                    </f:facet>
-                   
-                   
-                 
-                    
-                	<h:commandButton id="saveticket_#{flight.id}" value="Book now!" styleClass="btn" action="#{searchFlightBean.saveTickets(flight.id)}"/>
-                
-                </h:column>
-                
-            </h:dataTable>
-            	  </h:form>
+		<h:form>
+			<h:dataTable id="flightstable" value="#{searchFlightBean.flights}"
+				var="flight" styleClass="table table-striped">
 
-            <h:link styleClass="btn btn-default" outcome="index"><span class="glyphicon glyphicon-home"></span> Home</h:link>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Airline company" />
+					</f:facet>
+					<h:outputText value="#{flight.airlineCompany.airlineCompanyName}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Departures" />
+					</f:facet>
+					<h:outputText value="#{flight.airportDeparture.airportName}" />
+					<br />
+					<h:outputText value="#{flight.departureTime}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Arrival" />
+					</f:facet>
+					<h:outputText value="#{flight.airportArrival.airportName}" />
+					<br />
+					<h:outputText value="#{flight.arrivalTime}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">!
+                        <h:outputText value="Price" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="# Passengers" />
+					</f:facet>
+
+
+
+
+					<h:commandButton id="saveticket_#{flight.id}" value="Book now!"
+						styleClass="btn"
+						action="#{searchFlightBean.saveTickets(flight.id)}" />
+
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+		<h:link styleClass="btn btn-default" outcome="index"><span class="glyphicon glyphicon-home"></span> Home</h:link>
         </ui:define>
     </ui:composition>
 

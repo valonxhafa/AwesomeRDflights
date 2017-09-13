@@ -26,6 +26,7 @@ public class LoginBean implements Serializable {
 	private String email;
 	private String password;
 
+	private String erroMsg;
 	private User user;
 	private String loggedinUser;
 	private String airlineCompany;
@@ -109,7 +110,9 @@ public class LoginBean implements Serializable {
 			}
 		}else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"Incorrect Username and Passwrd", "Please enter correct username and Password"));
+					"Incorrect Username and Passwrd", "Please enter a correct username and Password"));
+			setErroMsg("Please enter correct username and Password");
+			
 			return "login";
 		}
 	}
@@ -119,5 +122,13 @@ public class LoginBean implements Serializable {
 		HttpSession session = SessionUtils.getSession();
 		session.invalidate();
 		return "login";
+	}
+
+	public String getErroMsg() {
+		return erroMsg;
+	}
+
+	public void setErroMsg(String erroMsg) {
+		this.erroMsg = erroMsg;
 	}
 }

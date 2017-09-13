@@ -9,5 +9,8 @@ import com.realdolmen.rdflights.domain.Flight;
 public interface AirlineCompanyServiceRemote {
 
 	List<Flight> getAllFlights(Long id);
+	void deleteFlight(long flightId);
+	Flight save(Flight f);
+	void updateFlight(Flight f);
 	
 }

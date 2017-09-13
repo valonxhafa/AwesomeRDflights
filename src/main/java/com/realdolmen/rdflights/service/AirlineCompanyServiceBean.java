@@ -21,4 +21,22 @@ public class AirlineCompanyServiceBean implements AirlineCompanyServiceRemote {
 		// TODO Auto-generated method stub
 		return acr.getAllFLights(id);
 	}
+
+	@Override
+	public void deleteFlight(long flightId) {
+		// TODO Auto-generated method stub
+		acr.deleteFlight(flightId);
+	}
+
+	@Override
+	public Flight save(Flight f) {
+		// TODO Auto-generated method stub
+		return acr.save(f);
+	}
+
+	@Override
+	public void updateFlight(Flight f) {
+		// TODO Auto-generated method stub
+		acr.updateFlight(f);
+	}
 }

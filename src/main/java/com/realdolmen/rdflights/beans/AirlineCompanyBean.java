@@ -8,15 +8,16 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
 
 import com.realdolmen.rdflights.domain.Flight;
 import com.realdolmen.rdflights.service.AirlineCompanyServiceBean;
+import com.realdolmen.rdflights.service.FlightServiceBean;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class AirlineCompanyBean implements Serializable  {
 	
 	
@@ -31,9 +32,16 @@ public class AirlineCompanyBean implements Serializable  {
 	private Date departureTime;
 	private Date arrivalTime;
 	private String flightNumber;
+	private Long airportId;
+	private String airportDepName;
+	private String airportArName;
+	
+	private Flight flight;
 	
 	@Inject
 	AirlineCompanyServiceBean asb;
+	@Inject
+	FlightServiceBean fsb;
 	
 	List<Flight> flights;
 
@@ -46,14 +54,32 @@ public class AirlineCompanyBean implements Serializable  {
 			departureTime 	= f.getDepartureTime();
 			arrivalTime 	= f.getArrivalTime();
 			flightNumber 	= f.getFlightNumber();
+			airportArName	= f.getAirportArrival().getAirportName();
+			airportDepName	= f.getAirportDeparture().getAirportName();
+			
 		}
 	}
+	public Flight save(Flight f){
+		fsb.saveFlight(f);
+		return f;
+	}
+	public void deleteFlight(Long flightId){
+		asb.deleteFlight(flightId);
+	}
+	
+	public void updateFlight(Flight f){
+		asb.updateFlight(f);
+	}
+	
+	public Flight saveFlight(Flight f){
+		return asb.save(f);
+	}
+	
 	
 	
 	public List<Flight> getFlights() {
 		return flights;
 	}
-	
 	
 	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
@@ -95,6 +121,38 @@ public class AirlineCompanyBean implements Serializable  {
 	}
 	public void setAcId(Long acId) {
 		this.acId = acId;
+	}
+
+	public Long getAirportId() {
+		return airportId;
+	}
+
+	public void setAirportId(Long airportId) {
+		this.airportId = airportId;
+	}
+
+	public String getAirportDepName() {
+		return airportDepName;
+	}
+
+	public void setAirportDepName(String airportDepName) {
+		this.airportDepName = airportDepName;
+	}
+
+	public String getAirportArName() {
+		return airportArName;
+	}
+
+	public void setAirportArName(String airportArName) {
+		this.airportArName = airportArName;
+	}
+
+	public Flight getFlight() {
+		return flight;
+	}
+
+	public void setFlight(Flight flight) {
+		this.flight = flight;
 	}
 	
 }
