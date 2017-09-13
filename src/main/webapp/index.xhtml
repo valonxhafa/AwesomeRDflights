@@ -2,7 +2,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:t="http://xmlns.jcp.org/jsf/composite/tags"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <ui:composition template="/template.xhtml">
 	<ui:define name="pageContent">
@@ -27,119 +31,61 @@
 								<div class="tab-content">
 									<div role="tabpanel" class="tab-pane active fade in"
 										id="booking_flight">
-										<form class="booking-form">
-											<div class="row">
-												<div
-													class="form-group col-md-12 no-padding booking_location select-options">
-													<label>Where do you want to go?</label>
-													<div class="select_options">
-														<select class="form-control">
-															<option>Australia</option>
-															<option>London</option>
-															<option>Las Vegas</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group col-md-12 no-padding">
-													<div class="row">
-														<div class="col-md-6 col-sm-6 col-xs-12">
-															<label>Check in date</label>
-															<div class="input-group datepicker" id="datepicker">
-																<input type='text' class="form-control" /> <span
-																	class="input-group-addon add-on"> <img
-																	src="resources/theme/img/clander.png" alt="clander"
-																	width="18" height="19" />
-																</span>
-															</div>
-														</div>
-														<div class="col-md-6 col-sm-6 col-xs-12">
-															<label>Check out date</label>
-															<div class="input-group datepicker" id="datepicker2">
-																<input type='text' class="form-control" /> <span
-																	class="input-group-addon add-on"> <img
-																	src="resources/theme/img/clander.png" alt="clander"
-																	width="18" height="19" />
-																</span>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="form-group col-md-12 no-padding">
-													<a href="#" title="Book Now">Book Now</a>
-												</div>
-											</div>
-										</form>
-									</div>
-									<div role="tabpanel" class="tab-pane fade" id="booking_train">
-										<form class="booking-form">
-											<div class="row">
-												<div
-													class="form-group col-md-12 no-padding booking_location select-options">
-													<label>Where do you want to go?</label>
-													<div class="select_options">
-														<select class="form-control">
-															<option>Australia</option>
-															<option>London</option>
-															<option>Las Vegas</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group col-md-12 no-padding">
-													<div class="row">
-														<div class="col-md-6 col-sm-6 col-xs-12">
-															<label>Check in date</label>
-															<div class="input-group datepicker" id="datepicke3">
-																<input type='text' class="form-control" /> <span
-																	class="input-group-addon add-on"> <img
-																	src="resources/theme/img/clander.png" alt="clander"
-																	width="18" height="19" />
-																</span>
-															</div>
-														</div>
-														<div class="col-md-6 col-sm-6 col-xs-12">
-															<label>Check out date</label>
-															<div class="input-group datepicker" id="datepicker4">
-																<input type='text' class="form-control" /> <span
-																	class="input-group-addon add-on"> <img
-																	src="resources/theme/img/clander.png" alt="clander"
-																	width="18" height="19" />
-																</span>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="form-group col-md-12 no-padding">
-													<div class="row">
-														<div
-															class="col-md-3 col-sm-2 col-xs-4 booking_rooms select-options">
-															<label>Rooms</label> <select class="form-control">
-																<option>1</option>
-																<option>2</option>
-																<option>3</option>
-															</select>
-														</div>
-														<div
-															class="col-md-4 col-sm-5 col-xs-4 adults select-options">
-															<label>Adults</label> <select class="form-control">
-																<option>02 Adults</option>
-																<option>03 Adults</option>
-																<option>05 Adults</option>
-															</select>
-														</div>
-														<div class="col-md-5 col-sm-5 col-xs-4 select-options">
-															<label>Childs</label> <select class="form-control">
-																<option>01 Childs</option>
-																<option>02 Childs</option>
-																<option>03 Childs</option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="form-group col-md-12 no-padding">
-													<a href="#" title="Book Now">Book Now</a>
-												</div>
-											</div>
-										</form>
+										<h:form id="searchForm">
+											<h:panelGrid columns="4">
+
+												<p:outputLabel value="Search departure:" />
+												<h:panelGroup>
+													<p:selectOneMenu id="searchDeparture"
+														value="#{searchFlightBean.airportDeparture}"
+														panelStyle="width:300px" effect="fade" style="width:300px"
+														filter="true" filterMatchMode="contains">
+														<f:selectItem itemLabel="Select One" itemValue="" />
+														<f:selectItems value="#{searchFlightBean.airports}"
+															var="airport" itemLabel="#{airport.airportName}"
+															itemValue="#{airport.id}" />
+													</p:selectOneMenu>
+												</h:panelGroup>
+
+												<p:outputLabel value="Search arrival: " />
+												<h:panelGroup>
+
+													<p:selectOneMenu id="searchArrival"
+														value="#{searchFlightBean.airportArrival}"
+														panelStyle="width:300px" effect="fade" style="width:300px"
+														filter="true" filterMatchMode="contains">
+														<f:selectItem itemLabel="Arrival" itemValue="" />
+														<f:selectItems value="#{searchFlightBean.airports}"
+															var="airport" itemLabel="#{airport.airportName}"
+															itemValue="#{airport.id}" />
+													</p:selectOneMenu>
+
+												</h:panelGroup>
+
+												<p:outputLabel value="Departure date: " />
+												<h:panelGroup>
+													<p:calendar id="departuredateID" pattern="dd-MM-yyyy"
+														value="#{searchFlightBean.departureTime}"
+														mindate="#{searchFlightBean.currentDate}" />
+												</h:panelGroup>
+
+												<p:outputLabel value="Return date: " />
+												<h:panelGroup>
+													<p:calendar id="returndateID" pattern="dd/MM/yyyy"
+														value="#{searchFlightBean.arrivalTime}"
+														mindate="#{searchFlightBean.currentDate}" />
+												</h:panelGroup>
+
+												<h:inputText id="passquantity"
+													value="#{searchFlightBean.passengersquantity}"
+													a:placeholder="#" />
+
+											</h:panelGrid>
+
+											<h:commandButton value="YEEEE BOI"
+												action="#{searchFlightBean.findAllFlightsByCriteria()}"
+												styleClass="btn" />
+										</h:form>
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="booking_bus">
 										<form class="booking-form">

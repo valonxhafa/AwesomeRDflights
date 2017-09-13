@@ -130,7 +130,8 @@
 										<c:if test="#{not empty loginBean.loggedinUser}">
 											<h:form>
 												<h3>Welcome #{loginBean.loggedinUser}</h3>
-												<h:commandLink action="#{loginBean.logout}" value="Logout" styleClass="ata-simple-btn"></h:commandLink>
+												<h:commandLink action="#{loginBean.logout}" value="Logout"
+													styleClass="ata-simple-btn"></h:commandLink>
 											</h:form>
 										</c:if>
 									</div>
@@ -164,13 +165,13 @@
 		</div>
 	</header>
 	<main class="site-main page-spacing"> <!--The page content  -->
-	<ui:insert name="pageContent">
-		<h1>Page content</h1>
-		<p>This content should be replaced by the client page.</p>
-	</ui:insert> </main>
+		<ui:insert name="pageContent">
+			<h1>Page content</h1>
+			<p>This content should be replaced by the client page.</p>
+		</ui:insert> 
+	</main>
 
-	<!-- <h:outputScript library="jquery-2.2.1" name="jquery.js" /> -->
-	<h:outputScript library="theme" name="jquery.min.js" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js" target="head"></h:outputScript>
 	<h:outputScript library="bootstrap-3.3.6" name="/js/bootstrap.js" />
 	<h:outputScript library="js" name="script.js" />
 	<h:outputScript library="theme" name="jquery.ddslick.min.js" />
