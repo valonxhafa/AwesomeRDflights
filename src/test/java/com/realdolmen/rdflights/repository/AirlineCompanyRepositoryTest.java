@@ -23,9 +23,9 @@ public class AirlineCompanyRepositoryTest extends AbstractPersistenceTest  {
     
     @Test
     public void getAirlineCompanyFlights() {
-        List<Flight> flights = repo.getAllFLights(7);
+        List<Flight> flights = repo.getAllFLights(16);
         assertNotNull(flights);
-        assertEquals(3, flights.size());
+        assertEquals(6, flights.size());
         System.out.println(flights);
     }
 }

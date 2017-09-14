@@ -39,9 +39,7 @@ public class TicketBean {
 		for (Ticket t : tickets) {
 			t.setBooking(booking);
 			ticketService.saveTicket(t);
-			System.out.println(t.getPassenger().getFirstName() + " " + t.getBooking().getId());
 		}
-		
 	}
 	
     @PostConstruct

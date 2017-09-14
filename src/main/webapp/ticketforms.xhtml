@@ -14,10 +14,9 @@
             
            <h:form>
 		    <h:dataTable id="flightstable" value="#{ticketBean.tickets}" var="ticket" styleClass="table table-striped">
-		     
-            <h:outputText value="#{ticketBean.passengersquantity}"/>
+		    
             <h:column>
-               <h:outputText value="Passenger"/>
+               <h:outputText value="Passenger #{ticket.passenger.passenger_counter} "/>
 			<div class="ata-form-group">
 
 			</div>

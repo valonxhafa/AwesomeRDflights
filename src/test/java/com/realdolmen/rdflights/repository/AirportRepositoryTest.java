@@ -25,7 +25,7 @@ public class AirportRepositoryTest extends AbstractPersistenceTest {
     public void shouldReturnAllAirports() {
         List<Airport> airports = airportRepo.findAll();
         assertNotNull(airports);
-        assertEquals(59, airports.size());
+        assertEquals(58, airports.size());
     }
 
 }

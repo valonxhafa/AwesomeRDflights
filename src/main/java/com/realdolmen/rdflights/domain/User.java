@@ -39,7 +39,8 @@ public class User extends AbstractMaster implements Serializable {
     private String airlineCompanyCode;
     private String airlineCompanyName;
     private String airlineCompanydescription;
-
+    @Transient
+    private int passenger_counter;
     
     public User() {
     }
@@ -155,5 +156,23 @@ public class User extends AbstractMaster implements Serializable {
 	public void setAirlineCompanyDescription(String airlineCompanydescription) {
 		this.airlineCompanydescription = airlineCompanydescription;
 	}
+
+	public String getAirlineCompanydescription() {
+		return airlineCompanydescription;
+	}
+
+	public void setAirlineCompanydescription(String airlineCompanydescription) {
+		this.airlineCompanydescription = airlineCompanydescription;
+	}
+
+	public int getPassenger_counter() {
+		return passenger_counter;
+	}
+
+	public void setPassenger_counter(int passenger_counter) {
+		this.passenger_counter = passenger_counter;
+	}
+	
+	
     
 }

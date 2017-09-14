@@ -25,16 +25,17 @@ public class SearchFlightBean {
 	private Long airportDeparture;
 	private Long airportArrival;
 	private Date departureTime;
-	
-	
 	private Date arrivalTime;
 	private Date returnDate;
+	
 	private String tempDepTime;
 	private User airlineCompany;
 	private String flightNumber;
+	
 	private List<Airport> airports;
 	private List<Flight> flights;
 	private List<Ticket> tickets = new ArrayList<>();
+	private int local_counter;
 	private Date currentDate;
 	private int passengersquantity;
 	private Long booking_id;
@@ -75,7 +76,6 @@ public class SearchFlightBean {
 		flightid = id;
 		FillEmptyTicketList();
 		passengersquantity = 0;
-		
         return "ticketforms";
     }
     
@@ -87,7 +87,7 @@ public class SearchFlightBean {
         	Ticket ticket = new Ticket();
         	User passenger = new User();
         	Flight flight = flightService.findFlightById(flightid);
-        	//flight.setAirportDeparture(airportDeparture);
+        	passenger.setPassenger_counter(i+1);
         	ticket.setFlight(flight);
         	ticket.setPassenger(passenger);
         	tickets.add(ticket);
@@ -249,6 +249,16 @@ public class SearchFlightBean {
 
 	public void setFlightid(Long flightid) {
 		this.flightid = flightid;
+	}
+
+
+	public int getLocal_counter() {
+		return local_counter;
+	}
+
+
+	public void setLocal_counter(int local_counter) {
+		this.local_counter = local_counter;
 	}
 	
 	
