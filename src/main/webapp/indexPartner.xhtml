@@ -39,8 +39,7 @@
 					<div class="ata-form-group v-align-items">
 						<div class="input-group datepicker-partner-flight" id="datepicker">
 							<h:outputLabel for="dep_time">Departure Time</h:outputLabel>
-							<h:inputText id="dep_time"
-								value="#{airlineCompanyBean.depTime}"
+							<h:inputText id="dep_time" value="#{airlineCompanyBean.depTime}"
 								a:placeholder="Departure time" styleClass="form-control" />
 							<span class="input-group-addon add-on"> <img
 								src="resources/theme/img/clander.png" alt="clander" width="18"
@@ -49,8 +48,7 @@
 						</div>
 						<div class="input-group datepicker-partner-flight" id="datepicker">
 							<h:outputLabel for="arr_time">Arrival Time</h:outputLabel>
-							<h:inputText id="arr_time"
-								value="#{airlineCompanyBean.arrTime}"
+							<h:inputText id="arr_time" value="#{airlineCompanyBean.arrTime}"
 								a:placeholder="Arrival time" styleClass="form-control" />
 							<span class="input-group-addon add-on"> <img
 								src="resources/theme/img/clander.png" alt="clander" width="18"
@@ -60,7 +58,8 @@
 					</div>
 					<div class="ata-form-group">
 						<h:outputLabel for="flightNumber">Flightnumber</h:outputLabel>
-						<h:inputText id="flightNumber" value="#{airlineCompanyBean.flight.flightNumber}"
+						<h:inputText id="flightNumber"
+							value="#{airlineCompanyBean.flight.flightNumber}"
 							a:placeholder="Flight number" />
 						<h:message for="flightNumber"
 							errorClass="ata-control-label ata-has-error" />
@@ -71,10 +70,9 @@
 						<h:message for="priceB"
 							errorClass="ata-control-label ata-has-error" />
 					</div> -->
-					<h:commandButton value="Save Flight" action="#{airlineCompanyBean.saveFlight(airlineCompanyBean.flight)}"
+					<h:commandButton value="Save Flight"
+						action="#{airlineCompanyBean.saveFlight(airlineCompanyBean.flight)}"
 						styleClass="ata-btn ata-btn-xs" id="saveFlightBtn" />
-						
-						
 				</h:form>
 			</div>
 		</div>
@@ -107,11 +105,16 @@
 									<f:facet name="header">
 										<h:outputText value="Departure" />
 									</f:facet>
-									
+
 									<h:outputText value="#{flight.airportDeparture.airportName}"
 										rendered="#{not flight.editable}" />
-									<h:inputText value="#{flight.airportDeparture.airportName}"
-										rendered="#{flight.editable}" />
+									<h:selectOneMenu id="ata-edit-depflight"
+										value="#{airlineCompanyBean.airportDepName}"
+										rendered="#{flight.editable}">
+										<f:selectItems var="dep"
+											value="#{airlineCompanyBean.airports}" itemValue="#{dep.id}"
+											itemLabel="#{dep.airportName}" />
+									</h:selectOneMenu>
 									<br />
 									<h:outputText value="#{flight.departureTime}"
 										rendered="#{not flight.editable}" />
@@ -125,8 +128,13 @@
 									</f:facet>
 									<h:outputText value="#{flight.airportArrival.airportName}"
 										rendered="#{not flight.editable}" />
-									<h:inputText value="#{flight.airportArrival.airportName}"
-										rendered="#{ flight.editable}" />
+									<h:selectOneMenu id="ata-edit-arrflight"
+										value="#{airlineCompanyBean.airportArName}"
+										rendered="#{flight.editable}">
+										<f:selectItems var="dep"
+											value="#{airlineCompanyBean.airports}" itemValue="#{dep.id}"
+											itemLabel="#{dep.airportName}" />
+									</h:selectOneMenu>
 									<br />
 									<h:outputText value="#{flight.arrivalTime}"
 										rendered="#{not flight.editable}" />

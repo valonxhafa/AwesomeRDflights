@@ -1,73 +1,92 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:t="http://xmlns.jcp.org/jsf/composite/tags"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-        >
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:t="http://xmlns.jcp.org/jsf/composite/tags"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-    <ui:composition template="template.xhtml">
-        <ui:define name="pageContent">
-            <h1> Ticket reservation </h1> <h:outputText />
-            
-           <h:form>
-		    <h:dataTable id="flightstable" value="#{ticketBean.tickets}" var="ticket" styleClass="table table-striped">
-		     
-            <h:outputText value="#{ticketBean.passengersquantity}"/>
-            <h:column>
-               <h:outputText value="Passenger"/>
-			<div class="ata-form-group">
+<ui:composition template="template.xhtml">
+	<ui:define name="pageContent">
+		<!-- PageBanner -->
+		<div class="container-fluid no-padding pagebanner ata-signup">
+			<div class="container">
+				<h3>Your AweSome crew</h3>
+			</div>
+		</div>
+		<!-- PageBanner /- -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 ata-form-container signup-container"
+					style="min-width: 100%;">
+					<h1>Number of passenger</h1>
+					<h:form>
+						<h:dataTable id="flightstable" value="#{ticketBean.tickets}"
+							var="ticket" styleClass="table table-striped">
 
-			</div>
-			</h:column>
-			
-             <h:column>
-			<div class="ata-form-group">
-				<h:inputText id="firstName_#{ticket.id}" value="#{ticket.passenger.firstName}"
-					a:placeholder="First Name" />
-				<h:message for="firstName" errorClass="ata-control-label ata-has-error" />
-			</div>
-			</h:column>
+							<h:outputText value="#{ticketBean.passengersquantity}" />
+							<h:column>
+								<h:outputText value="Passenger" />
+								<div class="ata-form-group"></div>
+							</h:column>
 
-			<h:column>
-			<div class="ata-form-group">
-				<h:inputText id="lastName_#{ticket.id}" value="#{ticket.passenger.lastName}"
-					a:placeholder="Last Name" />
-				<h:message for="lastName" errorClass="ata-control-label ata-has-error" />
-			</div>
-			</h:column>
-			
-			<h:column>
-			<div class="ata-form-group">
-				<h:outputLabel for="ata-gendere">Gender</h:outputLabel>
-				<h:selectOneMenu id="ata-gender_#{ticket.id}" value="#{ticket.passenger.gender}">
-					<f:selectItem itemValue="M" itemLabel="M" />
-					<f:selectItem itemValue="F" itemLabel="F" />
-					<f:selectItem itemValue="X" itemLabel="X" />
-				</h:selectOneMenu>
-				<h:message for="ata-gender" errorClass="ata-control-label ata-has-error" />
-			</div>
-			</h:column>
-			
-			<h:column>
-			<div class="ata-form-group">
-				<h:inputText id="birthDate_#{ticket.id}" value="#{ticket.passenger.birthDate}"
-					a:placeholder="Birthdate (YYYY-MM-DD)">
-					<f:convertDateTime pattern="yyyy-MM-dd" />
-				</h:inputText>
-				<h:message for="birthDate" errorClass="ata-control-label ata-has-error" />
-			</div>
-			</h:column> -->
+							<h:column>
+								<div class="ata-form-group">
+									<h:inputText id="firstName_#{ticket.id}"
+										value="#{ticket.passenger.firstName}"
+										a:placeholder="First Name" />
+									<h:message for="firstName"
+										errorClass="ata-control-label ata-has-error" />
+								</div>
+							</h:column>
+
+							<h:column>
+								<div class="ata-form-group">
+									<h:inputText id="lastName_#{ticket.id}"
+										value="#{ticket.passenger.lastName}" a:placeholder="Last Name" />
+									<h:message for="lastName"
+										errorClass="ata-control-label ata-has-error" />
+								</div>
+							</h:column>
+
+							<h:column>
+								<div class="ata-form-group">
+									<h:selectOneMenu id="ata-gender_#{ticket.id}"
+										value="#{ticket.passenger.gender}">
+										<f:selectItem itemValue="M" itemLabel="M" />
+										<f:selectItem itemValue="F" itemLabel="F" />
+										<f:selectItem itemValue="X" itemLabel="X" />
+									</h:selectOneMenu>
+									<h:message for="ata-gender"
+										errorClass="ata-control-label ata-has-error" />
+								</div>
+							</h:column>
+
+							<h:column>
+								<div class="ata-form-group">
+									<h:inputText id="birthDate_#{ticket.id}"
+										value="#{ticket.passenger.birthDate}"
+										a:placeholder="Birthdate (YYYY-MM-DD)">
+										<f:convertDateTime pattern="yyyy-MM-dd" />
+									</h:inputText>
+									<h:message for="birthDate"
+										errorClass="ata-control-label ata-has-error" />
+								</div>
+							</h:column> -->
 			</h:dataTable>
-			<h:commandButton value="Save" action="#{ticketBean.saveTicket()}"
-				styleClass="btn btn-primary" />
-			</h:form>
+						<h:commandLink action="#{ticketBean.saveTicket()}"
+							styleClass="ata-btn ata-btn-success ticket-save-btn">
+							<span class="icon icon-Floppy"></span>Save Passengers
+							</h:commandLink>
+					</h:form>
 
-            <h:link styleClass="btn btn-default" outcome="index"><span class="glyphicon glyphicon-home"></span> Home</h:link>
-        </ui:define>
-    </ui:composition>
+
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
 
 
 </html>
