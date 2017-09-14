@@ -32,10 +32,11 @@
 									<div role="tabpanel" class="tab-pane active fade in"
 										id="booking_flight">
 										<h:form id="searchForm">
-											<h:panelGrid columns="4">
 
-												<p:outputLabel value="Search departure:" />
-												<h:panelGroup>
+											<div class="row">
+												<div
+													class="form-group col-md-12 no-padding booking_location select-options">
+													<label>Departure airport?</label>
 													<p:selectOneMenu id="searchDeparture"
 														value="#{searchFlightBean.airportDeparture}"
 														panelStyle="width:300px" effect="fade" style="width:300px"
@@ -45,11 +46,12 @@
 															var="airport" itemLabel="#{airport.airportName}"
 															itemValue="#{airport.id}" />
 													</p:selectOneMenu>
-												</h:panelGroup>
-
-												<p:outputLabel value="Search arrival: " />
-												<h:panelGroup>
-
+												</div>
+											</div>
+											<div class="row">
+												<div
+													class="form-group col-md-12 no-padding booking_location select-options">
+													<label>Where do you want to go?</label>
 													<p:selectOneMenu id="searchArrival"
 														value="#{searchFlightBean.airportArrival}"
 														panelStyle="width:300px" effect="fade" style="width:300px"
@@ -59,32 +61,42 @@
 															var="airport" itemLabel="#{airport.airportName}"
 															itemValue="#{airport.id}" />
 													</p:selectOneMenu>
+												</div>
+											</div>
 
-												</h:panelGroup>
+											<div class="row">
+												<div
+													class="form-group col-md-9 col-sm-9 col-xs-9 no-padding">
+													<label>Awesome trip date?</label>
+													<div class="input-group datepicker">
+														<p:calendar id="departuredateID" pattern="dd-MM-yyyy"
+															value="#{searchFlightBean.departureTime}"
+															mindate="#{searchFlightBean.currentDate}" />
+													</div>
+												</div>
+												<div class="form-group col-xs-3 no-padding">
+													<label>#People?</label>
+													<h:inputText id="passquantity"
+														value="#{searchFlightBean.passengersquantity}"
+														a:placeholder="#" />
+												</div>
+											</div>
 
-												<p:outputLabel value="Departure date: " />
-												<h:panelGroup>
-													<p:calendar id="departuredateID" pattern="dd-MM-yyyy"
-														value="#{searchFlightBean.departureTime}"
-														mindate="#{searchFlightBean.currentDate}" />
-												</h:panelGroup>
+											<!-- <p:calendar id="returndateID" pattern="dd/MM/yyyy"
+												value="#{searchFlightBean.arrivalTime}"
+												mindate="#{searchFlightBean.currentDate}" /> -->
+											<div class="row">
+												<div class="col-xs-12">
 
-												<p:outputLabel value="Return date: " />
-												<h:panelGroup>
-													<p:calendar id="returndateID" pattern="dd/MM/yyyy"
-														value="#{searchFlightBean.arrivalTime}"
-														mindate="#{searchFlightBean.currentDate}" />
-												</h:panelGroup>
+													<h:commandLink
+														action="#{searchFlightBean.findAllFlightsByCriteria()}"
+														styleClass="ata-btn ata-btn-success home-btn">
+														<span class="icon icon-WorldWide"></span>
+														AWESOME TRIP!
+													</h:commandLink>
+												</div>
+											</div>
 
-												<h:inputText id="passquantity"
-													value="#{searchFlightBean.passengersquantity}"
-													a:placeholder="#" />
-
-											</h:panelGrid>
-
-											<h:commandButton value="YEEEE BOI"
-												action="#{searchFlightBean.findAllFlightsByCriteria()}"
-												styleClass="btn" />
 										</h:form>
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="booking_bus">
@@ -188,7 +200,73 @@
 			<!-- PhotoSlider2 Carousel /- -->
 		</div>
 		<!-- PhotoSlider2 /- -->
-
+		<!-- Popular Destination -->
+		<div class="container popular-destination popular-destination_v2">
+			<div class="section-padding"></div>
+			<div class="section-header">
+				<h3>ATA's best Destinations</h3>
+				<span>We're gonna make your dreams come true</span>
+			</div>
+			<div class="popular-destination-block">
+				<div class="row">
+					<div class="col-md-6 popular-destination-left">
+						<div class="popular-destinatonbox">
+							<img src="resources/theme/img/populardestinaion1-wide.jpg"
+								alt="populardestinaion1-wide" width="580" height="530" />
+							<div class="popular-destination-info">
+								<a href="destination-details.html" title="Port Jackson"><h3>Port
+										Jackson</h3></a> <span>Harbor</span> <span class="amount">$355</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 popular-destination-right">
+						<div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+							<div class="popular-destinatonbox">
+								<img src="resources/theme/img/populardestinaion2.jpg"
+									alt="populardestinaion2" width="285" height="260" />
+								<div class="popular-destination-info">
+									<span>Beaches, Surfing</span> <a
+										href="destination-details.html" title="Bondi Beach"><h3>Bondi
+											Beach</h3></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+							<div class="popular-destinatonbox">
+								<img src="resources/theme/img/populardestinaion3.jpg"
+									alt="populardestinaion3" width="285" height="260" />
+								<div class="popular-destination-info">
+									<span>Celebration</span> <a href="destination-details.html"
+										title="The Rock"><h3>The Rock</h3></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+							<div class="popular-destinatonbox">
+								<img src="resources/theme/img/populardestinaion4.jpg"
+									alt="populardestinaion4" width="285" height="260" />
+								<div class="popular-destination-info">
+									<span>Celebration</span> <a href="destination-details.html"
+										title="Darling Harbour"><h3>Darling Harbour</h3></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+							<div class="popular-destinatonbox">
+								<img src="resources/theme/img/populardestinaion5.jpg"
+									alt="populardestinaion5" width="285" height="260" />
+								<div class="popular-destination-info">
+									<span>large zoo</span> <a href="destination-details.html"
+										title="Tanronga zoo"><h3>Tanronga zoo</h3></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section-padding"></div>
+		</div>
+		<!-- Popular Destination /- -->
 	</ui:define>
 </ui:composition>
 
